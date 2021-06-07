@@ -42,9 +42,13 @@
       <tbody>
         <% @rooms.each do |room| %>
           <tr>
-            <td><%= room.id %></td>
+            <%
+=begin%>
+ <td><%= room.id %></td>
             <td><%= room.name %></td>
-            <td><%= room.title %></td>
+            <td><%= room.title %></td> 
+<%
+=end%>
           </tr>
         <% end %>
       </tbody>
