@@ -1,0 +1,53 @@
+<header></header>
+<div class="d-flex justify-content-around flex-wrap text-center w-100 p-3">
+<!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
+  <% @rooms.each do |room| %>
+    <div class="with45set m-2 bg-secondary rounded">
+      <div class=p-5>
+        <h2><%= link_to room.title , room_path(room) %></h2>
+        <p>作成者：<%= room.name %></p>
+        <p>作成日：<%= room.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to 'New question', new_room_path %>
+</div>
+
+<footer> 
+  <div class="backgroundTrans text-center fixed-bottom p-2">
+    <ul class="d-flex justify-content-around" style="list-style:none;">
+      <li>Room</li> 
+      <li>MyRoom</li>
+      <li>設定</li>
+    </ul>
+  </div>
+</footer>
+
+
+
+<h2>Questions</h2>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped">
+      <thead class="thead-light" >
+        <tr>
+          <th>ID</th>
+          <th>name</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @rooms.each do |room| %>
+          <tr>
+            <td><%= room.id %></td>
+            <td><%= room.name %></td>
+            <td><%= room.title %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  text-align: center;
+}
+.max{
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.clear{
+  clear: both;
+}
+ul{
+  padding:0;
+}
+.with45set{
+  width:45%;
+}
+.backgroundTrans{
+  background-color:#58ded9ab;
+}
