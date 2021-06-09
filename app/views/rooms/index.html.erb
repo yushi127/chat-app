@@ -1,12 +1,13 @@
+<div class="green-blue">
 <header></header>
 
-<p class="pl-5">検索</p>
+<h3 class="pl-5 px-2 pt-4 mb-1 text-white">search</h3>
 
 <div class="search-form">
   <div class="pl-5">
     <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :keyword, value: @keyword %>
-      <%= f.submit "検索" %>
+      <%= f.text_field :keyword, value: @keyword, class: "formboxcss" %>
+      <%= f.submit "search", class: "formbtmcss" %>
     <% end %>
   </div>
 </div>
@@ -14,18 +15,19 @@
 <div class="d-flex justify-content-around flex-wrap text-center w-100 p-3">
 <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
   <% @rooms.each do |room| %>
-    <div class="with45set m-2 bg-secondary rounded">
+    <div class="with45set m-2 color-skyblue rounded">
       <div class=p-5>
-        <h2><%= link_to room.title , room_path(room) %></h2>
+        <h2><%= link_to room.title , room_path(room), class: "text-dark" %></h2>
         <p>作成者：<%= room.name %></p>
         <p>作成日：<%= room.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+        <span><%= link_to 'Delete' , room_path(room), method: :delete, data:{ confirm: "本当に#{room.title}を消去してよろしいですか？"},class: "text-dark" %></span>
       </div>
     </div>
   <% end %>
 </div>
 
 <div>
-  <%= link_to 'New question', new_room_path %>
+  <h3 class="text-right  mr-5"><%= link_to '+New Room', new_room_path, class:"text-dark" %></h3>
 </div>
 
 <!-- <footer> -->
@@ -67,3 +69,4 @@
     </table>
   </div>
 </div>
+<div>
