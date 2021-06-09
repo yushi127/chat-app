@@ -6,6 +6,12 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
   end
+  
+  def search
+    @rooms = Room.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
+  end
 
   def new
     @room = Room.new
