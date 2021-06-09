@@ -1,4 +1,4 @@
-<div class="green-blue">
+<div class="bottmpad green-blue">
 <header></header>
 
 <h3 class="pl-5 px-2 pt-4 mb-1 text-white">search</h3>
@@ -15,12 +15,12 @@
 <div class="d-flex justify-content-around flex-wrap text-center w-100 p-3">
 <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
   <% @rooms.each do |room| %>
-    <div class="with45set m-2 color-skyblue rounded">
-      <div class=p-5>
-        <h2><%= link_to room.title , room_path(room), class: "text-dark" %></h2>
-        <p>作成者：<%= room.name %></p>
-        <p>作成日：<%= room.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-        <span><%= link_to 'Delete' , room_path(room), method: :delete, data:{ confirm: "本当に#{room.title}を消去してよろしいですか？"},class: "text-dark" %></span>
+    <div class="with45set m-2 color-skyblue rounded parent py-2">
+      <div class="p-5">
+        <h2 class="m-2"><%= link_to room.title , room_path(room),data:{ confirm: "#{room.title}に参加しますか？"}, class: "text-dark" %></h2>
+        <p class="m-2">作成者：<%= room.name %></p>
+        <p class="m-2 ">作成日：<%= room.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+        <span><%= link_to 'Delete' , room_path(room), method: :delete, data:{ confirm: "本当に#{room.title}を消去してよろしいですか？"},class: "text-dark child mr-5 mb-4" %></span>
       </div>
     </div>
   <% end %>
@@ -30,15 +30,15 @@
   <h3 class="text-right  mr-5"><%= link_to '+New Room', new_room_path, class:"text-dark" %></h3>
 </div>
 
-<!-- <footer> -->
-  <!-- <div class="backgroundTrans text-center fixed-bottom p-2"> -->
-    <!-- <ul class="d-flex justify-content-around" style="list-style:none;"> -->
-      <!-- <li>Room</li> -->
-      <!-- <li>MyRoom</li> -->
-      <!-- <li>設定</li> -->
-    <!-- </ul> -->
-  <!-- </div> -->
-<!-- </footer> -->
+<footer>
+  <div class="blue text-center fixed-bottom p-2">
+    <ul class="d-flex justify-content-around m-0 p-1" style="list-style:none;">
+      <li>Room</li>
+      <li>MyRoom</li>
+      <li >設定</li>
+    </ul>
+  </div>
+</footer>
 
 
 

@@ -14,6 +14,9 @@ body{
   max-width: 1170px;
   margin: 0 auto;
 }
+.bottmpad{
+  padding-bottom: 100px;
+}
 .clear{
   clear: both;
 }
@@ -29,10 +32,24 @@ ul{
 .color-skyblue{
   background-color:#007bff4f;
 }
+.blue{
+  background-color:#64acfb;
+}
+
 a{
   text-decoration: none;
   // color: black;
 }
+.parent{
+  position: relative;
+}
+.child{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+// 検索boxのcss
 .formboxcss{
   outline:0;/*クリック時の青い枠線消す*/	
   padding:0 10px;/*テキスト位置調整*/	 
