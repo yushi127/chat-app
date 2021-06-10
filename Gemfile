@@ -65,3 +65,5 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails','~>4.3.1'
 
 gem 'wdm', '>= 0.1.0'
+
+gem 'devise'
