@@ -1,10 +1,8 @@
 class RoomsController < ApplicationController
+  before_action :set_user, only: [:index, :search]
+
   def index
     @rooms = Room.all
-  end
-
-  def show
-    @room = Room.find(params[:id])
   end
   
   def search
@@ -35,9 +33,16 @@ class RoomsController < ApplicationController
     @room.destroy
     redirect_to root_path, notice: 'Success!'
   end
+
+  def show
+    # @user = current_user
+  end
   
   private
-    def room_params
+    def set_user
+      @user = current_user
+    end
+      def room_params
       params.require(:room).permit(:name, :title,:created_at)
     end
   

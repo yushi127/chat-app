@@ -1,72 +1,71 @@
-<div class="bottmpad green-blue">
-<header></header>
+<div class="bottmpad">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <h3 class="pl-5 px-2 pt-0 mb-1 text-white">search</h3>
 
-<h3 class="pl-5 px-2 pt-4 mb-1 text-white">search</h3>
+  <div class="search-form">
+    <div class="pl-5">
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.text_field :keyword, value: @keyword, class: "formboxcss" %>
+        <%= f.submit "search", class: "formbtmcss" %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <%= @user.username %>
+  </div>
 
-<div class="search-form">
-  <div class="pl-5">
-    <%= form_with url: search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :keyword, value: @keyword, class: "formboxcss" %>
-      <%= f.submit "search", class: "formbtmcss" %>
+  <div class="d-flex justify-content-around flex-wrap text-center w-100 p-3">
+  <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
+    <% @rooms.each do |room| %>
+      <div class="with45set m-2 color-skyblue rounded parent py-2">
+        <div class="p-5">
+          <h2 class="m-2"><%= link_to room.title , room_path(room),data:{ confirm: "#{room.title}に参加しますか？"}, class: "text-dark" %></h2>
+          <p class="m-2">作成者：<%= room.name %></p>
+          <p class="m-2 ">作成日：<%= room.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+          <span><%= link_to 'Delete' , room_path(room), method: :delete, data:{ confirm: "本当に#{room.title}を消去してよろしいですか？"},class: "text-dark child mr-5 mb-4" %></span>
+        </div>
+      </div>
     <% end %>
   </div>
-</div>
 
-<div class="d-flex justify-content-around flex-wrap text-center w-100 p-3">
-<!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
-  <% @rooms.each do |room| %>
-    <div class="with45set m-2 color-skyblue rounded parent py-2">
-      <div class="p-5">
-        <h2 class="m-2"><%= link_to room.title , room_path(room),data:{ confirm: "#{room.title}に参加しますか？"}, class: "text-dark" %></h2>
-        <p class="m-2">作成者：<%= room.name %></p>
-        <p class="m-2 ">作成日：<%= room.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-        <span><%= link_to 'Delete' , room_path(room), method: :delete, data:{ confirm: "本当に#{room.title}を消去してよろしいですか？"},class: "text-dark child mr-5 mb-4" %></span>
-      </div>
+  <div>
+    <h3 class="text-right  mr-5"><%= link_to '+New Room', new_room_path, class:"text-dark" %></h3>
+  </div>
+
+  <footer>
+    <div class="blue text-center fixed-bottom p-2">
+      <ul class="d-flex justify-content-around m-0 p-1" style="list-style:none;">
+        <li>Room</li>
+        <li>MyRoom</li>
+        <li >設定</li>
+      </ul>
     </div>
-  <% end %>
-</div>
-
-<div>
-  <h3 class="text-right  mr-5"><%= link_to '+New Room', new_room_path, class:"text-dark" %></h3>
-</div>
-
-<footer>
-  <div class="blue text-center fixed-bottom p-2">
-    <ul class="d-flex justify-content-around m-0 p-1" style="list-style:none;">
-      <li>Room</li>
-      <li>MyRoom</li>
-      <li >設定</li>
-    </ul>
-  </div>
-</footer>
+  </footer>
 
 
 
-<h2>Questions</h2>
-<div class="row">
-  <div class="col-md-12">
-    <table class="table table-striped">
-      <thead class="thead-light" >
-        <tr>
-          <th>ID</th>
-          <th>name</th>
-          <th>Title</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @rooms.each do |room| %>
+  <h2>Questions</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead class="thead-light" >
           <tr>
-            <%
-=begin%>
- <td><%= room.id %></td>
-            <td><%= room.name %></td>
-            <td><%= room.title %></td>
-<%
-=end%>
+            <th>ID</th>
+            <th>name</th>
+            <th>Title</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @rooms.each do |room| %>
+            <tr>
+              <td><%= room.id %></td>
+              <td><%= room.name %></td>
+              <td><%= room.title %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 <div>
