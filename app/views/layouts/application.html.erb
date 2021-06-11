@@ -11,12 +11,10 @@
 
   <body>
   <div class="green-blue">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% if user_signed_in? %>
-      <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
-    <% end %>
     <%= yield %>
+    <% if user_signed_in? %>
+      <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-dark" %></p>
+    <% end %>
    </div>
   </body>
 </html>
