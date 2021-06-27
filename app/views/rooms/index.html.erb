@@ -1,6 +1,7 @@
 <div class="bottmpad">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <h1 class="pl-5 px-2 pt-0 mb-1 text-white">All room</h1>
   <h3 class="pl-5 px-2 pt-0 mb-1 text-white">search</h3>
 
   <div class="search-form">
@@ -62,30 +63,6 @@
   </div>
 <div>
 
-
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-striped">
-        <thead class="thead-light" >
-          <tr>
-            <th>ID</th>
-            <th>userid</th>
-            <th>roomid</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @relation.each do |relation| %>
-            <tr>
-              <td><%= relation.id %></td>
-              <td><%= relation.userid %></td>
-              <td><%= relation.roomid %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-<div>
 
 
 
