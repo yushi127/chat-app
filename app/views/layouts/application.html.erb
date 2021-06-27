@@ -15,6 +15,15 @@
     <% if user_signed_in? %>
       <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-dark" %></p>
     <% end %>
+    <footer>
+      <div class="blue text-center fixed-bottom p-2">
+        <ul class="d-flex justify-content-around m-0 p-1" style="list-style:none;">
+          <li><%= link_to 'room' , root_path, class: "text-dark" %></li>
+          <li><%= link_to 'myroom' , myrooms_path, class: "text-dark" %></li>
+          <li >設定</li>
+        </ul>
+      </div>
+    </footer>
    </div>
   </body>
 </html>
