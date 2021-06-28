@@ -29,25 +29,6 @@ class RoomsController < ApplicationController
 
   end
 
-  # def myroom
-  #   @user = current_user
-  #   @myRelations = Relation.where(userid: @user.id)
-  #     # //下でループさせるから@roomsをあらかじめ定義する
-  #   @rooms = []
-  #      # //@roomsのなかにcurrent_userが入ってるルームを追加する
-  #   @myRelations.each do |myRelation|
-  #     @roomnum = Room.find_by(id: myRelation.roomid)
-  #     @rooms.push([@roomnum.id,@roomnum.name,@roomnum.title,@roomnum.created_at.strftime('%Y/%m/%d %H:%M'),@roomnum.created_at])
-  #   end
-  # end
-
-  # def relationdes
-  #   @relationdes = Relation.find_by(userid: @user, roomid: params[:id])
-  #   @relationdes.destroy
-  #   redirect_to root_path, notice: 'Success!'
-  # end
-  
-
   def new
     @room = Room.new
   end
@@ -69,6 +50,9 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.destroy
     redirect_to root_path, notice: 'Success!'
+  end
+
+  def setting
   end
 
   
