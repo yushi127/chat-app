@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'rooms#index'
   get 'search' => 'rooms#search'
+  get 'setting' => 'rooms#setting'
+
   # get 'myroom' => 'myrooms#index'
   # delete 'myrooms/:id' => 'myrooms#destroy'
   # delete 'relationdes' => 'rooms#relationdes'
