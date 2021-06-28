@@ -1,0 +1,27 @@
+<div>
+  <div class="text-center">
+    <div>
+      <h1 class="pr-5 text-white">Setting</h1>
+    </div>
+    <div>
+    <%= @user.user_icon %>
+    </div>
+
+
+
+    <div>
+      <p>username</p>
+      <input type="text">
+      <p>mailaddress</p>
+      <input type="text">
+    </div>
+    <% if user_signed_in? && @user.id == current_user.id %>
+      <%= link_to "プロフィール画像を変更する",  edit_user_registration_path(current_user), class: "btn btn-outline-danger" %>
+    <% end %>
+
+    <% if user_signed_in? && @user.id == current_user.id %>
+        <%= link_to "退会", user_registration_path(current_user), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+    <% end %>
+  </div>
+</div>
+  

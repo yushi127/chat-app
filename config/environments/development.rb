@@ -69,4 +69,5 @@ Rails.application.configure do
     :password => "Youserver15", #gmailパスワード
     :authentication => 'login',
   }
+
 end
