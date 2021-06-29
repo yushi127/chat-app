@@ -71,6 +71,7 @@
         <thead class="thead-light" >
           <tr>
             <th>ID</th>
+            <th>username</th>
             <th>email</th>
             <th>password</th>
             <th>user_icon</th>
@@ -80,13 +81,15 @@
         <tbody>
             <tr>
               <td><%= @user.id %></td>
+              <td><%= @user.username %></td>
               <td><%= @user.email %></td>
               <td><%= @user.password %></td>
-              <td><%= @user.user_icon %></td>
-
             </tr>
         </tbody>
       </table>
     </div>
   </div>
+
+
+  <%= image_tag @user.user_icon.to_s, class:"icon_image" %>
 <div>
