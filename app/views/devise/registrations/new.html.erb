@@ -27,6 +27,16 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :icon %><br />
+    <%= f.text_field :user_icon, autofocus: true, autocomplete: "username" %>
+  </div>
+  
+    <div class="field">
+    <%= f.label :アイコン %><br />
+    <%= f.file_field :user_icon %>
+    </div>
+
   <div class="actions">
     <%= f.submit t('.sign_up') %>
   </div>

@@ -68,3 +68,5 @@ gem 'wdm', '>= 0.1.0'
 
 gem 'devise'
 gem 'devise-i18n'
+
+gem 'carrierwave'

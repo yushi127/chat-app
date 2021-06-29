@@ -16,6 +16,8 @@ class User < ApplicationRecord
       where(conditions).first
     end
   end
+  
+  mount_uploader :user_icon, UserIconUploader
 
   validates :username,
   uniqueness: { case_sensitive: :false },
@@ -25,5 +27,5 @@ class User < ApplicationRecord
     # VALID_EMAIL_REGEX = /\A[\w+\-.]+@kwansei.ac.jp\z/i
     # validates :email, {presence: true, format:{ with: VALID_EMAIL_REGEX }}
 
-
 end
+    

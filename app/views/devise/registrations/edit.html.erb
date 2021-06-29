@@ -11,7 +11,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true,:readonly => true, autocomplete: "email" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -37,12 +37,18 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+    <div class="field">
+    <%= f.label :アイコン %><br />
+    <%= f.file_field :user_icon, id: 'upload-icon' %>
+    </div>
+
+
   <div class="actions">
-    <%= f.submit t('.update') %>
+    <br><%= f.submit t('.update') %>
   </div>
 <% end %>
 
-<h3><%= t('.cancel_my_account') %></h3>
+<h3><br><%= t('.cancel_my_account') %></h3>
 
 <p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
 
