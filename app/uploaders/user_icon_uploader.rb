@@ -14,12 +14,17 @@ class UserIconUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url(*args)
+  def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
+    # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  # a = ("IMG_5734.jpg","IMG_4761.JPG","IMG_4759.JPG","image_share.png").to_a
+  # "IMG_4759.JPG"
+  # "IMG_4761.JPG"
+  # "IMG_5734.jpg"
+  "image_05.jpg"
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
+  # p a.sample
+  end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
