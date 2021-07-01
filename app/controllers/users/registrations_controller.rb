@@ -14,15 +14,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  GET /resource/edit
-  def edit
-    # @user_icon = User.find(params[:id])
-    # @user_icon.name = params[:image][:user_icon].original_filename
-    # @user_icon.image = params[:image][:image].read
-    
-    # @user_icon.save!
-    super
-  end
+  # GET /resource/edit
+  # def edit
+
+  #   super
+  # end
 
   # PUT /resource
   # def update
