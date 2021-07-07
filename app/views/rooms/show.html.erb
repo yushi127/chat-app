@@ -1,17 +1,7 @@
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
 <div class="with45set m-2 bg-secondary rounded">
   <div class=p-5>
     <h2><%= @room.title %></h2>
     <p>作成者：<%= @room.name %></p>
-    <p>作成日：<%= @room.created_at.strftime('%Y/%m/%d %H:%M') %></p>     
-
-
-    
-    <p>作成者：<%= @relation.userid %></p>
-    <p>作成者：<%= @relation.roomid %></p>
-    <end>
-
+    <p>作成日：<%= @room.created_at.strftime('%Y/%m/%d %H:%M') %></p>
   </div>
 </div>

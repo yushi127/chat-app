@@ -48,9 +48,6 @@ a{
   right: 0;
   bottom: 0;
 }
-.heighthun{
-  height:600px;
-}
 
 // 検索boxのcss
 .formboxcss{
@@ -70,48 +67,4 @@ a{
 }
 #formbtmcss:hover{
   color:#666;/*検索ボタンマウスオーバー時のフォントカラー*/ 
-  }
-
-  img {
-    width: 200px;
-    height: 200px;
-    //サイズ指定
-    border-radius: 100px;
-    //画像を丸くする
-    object-fit: cover;
-    //タテヨコ比を変えないままトリミング
-  }
-
-
-  
-
-  #img_field {
-    width: 306px;
-    padding: 5px 8px;
-    border: solid 1px #DEE2E6;
-    text-align: center;
-    position: relative;
-    padding: 0;
-    border-radius: 5px;
-    cursor: pointer;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: #fff;
-    overflow: hidden;
-    box-sizing: border-box;
-    transition: 0.3s ease-out;
-  
-    &:hover {
-      background-color: #E8ECF1;
-      transition: 0.3s ease-out;
-      opacity: 0.9;
-    }
-  
-    i {
-      font-size: 30px;
-      color: #aaa;
-      line-height: 150px;
-      transition: 0.3s ease-out;
-    }
   }
