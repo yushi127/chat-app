@@ -3,17 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :authentication_keys => [:login]
-      
-has_many :messages
-def messages
-  return Message.where(user_id: self.id)
-end
 
   attr_accessor :login
 
-  def new
-    user_id = @User.all
-  end
+
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
@@ -23,6 +16,8 @@ end
       where(conditions).first
     end
   end
+  
+  mount_uploader :user_icon, UserIconUploader
 
   validates :username,
   uniqueness: { case_sensitive: :false },
@@ -32,5 +27,5 @@ end
     # VALID_EMAIL_REGEX = /\A[\w+\-.]+@kwansei.ac.jp\z/i
     # validates :email, {presence: true, format:{ with: VALID_EMAIL_REGEX }}
 
-    
 end
+    

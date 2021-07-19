@@ -1,6 +1,7 @@
 <div class="bottmpad">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <h1 class="pl-5 px-2 pt-0 mb-1 text-white">All room</h1>
   <h3 class="pl-5 px-2 pt-0 mb-1 text-white">search</h3>
 
   <div class="search-form">
@@ -20,10 +21,7 @@
     <% @rooms.each do |room| %>
       <div class="with45set m-2 color-skyblue rounded parent py-2">
         <div class="p-5">
-        
-          <h2 class="m-2">
-          <%= link_to room.title , 'chatroom',data:{ confirm: "#{room.title}に参加しますか？"}, class: "text-dark" %>
-          </h2>
+          <h2 class="m-2"><%= link_to room.title , chatroom_path(room),data:{ confirm: "#{room.title}に参加しますか？"}, class: "text-dark" %></h2>
           <p class="m-2">作成者：<%= room.name %></p>
           <p class="m-2 ">作成日：<%= room.created_at.strftime('%Y/%m/%d %H:%M') %></p>
           <span><%= link_to 'Delete' , room_path(room), method: :delete, data:{ confirm: "本当に#{room.title}を消去してよろしいですか？"},class: "text-dark child mr-5 mb-4" %></span>
@@ -36,15 +34,10 @@
     <h3 class="text-right  mr-5"><%= link_to '+New Room', new_room_path, class:"text-dark" %></h3>
   </div>
 
-  <footer>
-    <div class="blue text-center fixed-bottom p-2">
-      <ul class="d-flex justify-content-around m-0 p-1" style="list-style:none;">
-        <li>Room</li>
-        <li>MyRoom</li>
-        <li >設定</li>
-      </ul>
-    </div>
-  </footer>
+
+
+
+
   <h2>Questions</h2>
   <div class="row">
     <div class="col-md-12">
@@ -68,4 +61,35 @@
       </table>
     </div>
   </div>
+<div>
+
+
+  <h2>Questions</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead class="thead-light" >
+          <tr>
+            <th>ID</th>
+            <th>username</th>
+            <th>email</th>
+            <th>password</th>
+            <th>user_icon</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><%= @user.id %></td>
+              <td><%= @user.username %></td>
+              <td><%= @user.email %></td>
+              <td><%= @user.password %></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <%= image_tag @user.user_icon.to_s, class:"icon_image" %>
 <div>

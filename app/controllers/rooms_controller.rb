@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_user, only: [:index, :search]
+  before_action :set_user
 
   def index
     @rooms = Room.all
@@ -34,10 +34,24 @@ class RoomsController < ApplicationController
     redirect_to root_path, notice: 'Success!'
   end
 
+
   def show
-    # @user = current_user
+    @room = Room.find(params[:id])
+    @user = current_user
+    @relation = Relation.new
+    @relation.userid = @user.id 
+    @relation.roomid = @room.id
+    @relation.save
+    if @relation.save
+      flash[:notice] = "#{@room.title}に参加しました"
+    else
+      flash[:alert] = "#{@room.title}には既に参加しています!"
+    end
+
   end
-  
+  def setting
+  end
+
   private
     def set_user
       @user = current_user

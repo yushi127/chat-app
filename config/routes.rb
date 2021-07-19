@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   # root "home#index"
   get 'search' => 'rooms#search'
   get 'setting' => 'rooms#setting'
-
+  resources :myrooms
   resources :rooms
   resources :users
-  get 'chatroom' => 'chatroom#show'
-  get 'chatroom' => 'chatroom#create'
+  resources :chatroom
+  # get 'chatroom' => 'chatroom#show'
+  # get 'chatroom' => 'chatroom#create'
   mount ActionCable.server => '/cable'
 end
 

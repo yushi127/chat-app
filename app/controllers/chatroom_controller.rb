@@ -11,7 +11,9 @@ class ChatroomController < ApplicationController
   #     render new
   #   end
   # end
- 
+  def index
+
+  end
   def new
     @message = Message.new
   end
@@ -22,11 +24,22 @@ def create
    
   end
   def show
+    @room = Room.find(params[:id])
+    @user = current_user
     @messages = Message.all
-    
- @message = Message.find_by(id: params[:id])
- @user = User.find_by(id: current_user.id)
+        
+    @message = Message.find_by(id: params[:id])
+    @user = User.find_by(id: current_user.id)
 
+    @relation = Relation.new
+    @relation.userid = @user.id 
+    @relation.roomid = @room.id
+    @relation.save
+    if @relation.save
+      flash[:notice] = "#{@room.title}に参加しました"
+    else
+      flash[:alert] = "#{@room.title}には既に参加しています!"
+    end
   end
   private
   def set_user
