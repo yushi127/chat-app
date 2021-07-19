@@ -1,6 +1,7 @@
 <div class="bottmpad">
   <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%# <p class="alert"><%= alert %>
+
   <h1 class="pl-5 px-2 pt-0 mb-1 text-white">All room</h1>
   <h3 class="pl-5 px-2 pt-0 mb-1 text-white">search</h3>
 
@@ -21,7 +22,7 @@
     <% @rooms.each do |room| %>
       <div class="with45set m-2 color-skyblue rounded parent py-2">
         <div class="p-5">
-          <h2 class="m-2"><%= link_to room.title , room_path(room),data:{ confirm: "#{room.title}に参加しますか？"}, class: "text-dark" %></h2>
+          <h2 class="m-2"><%= link_to room.title , chatroom_path(room),data:{ confirm: "#{room.title}に参加しますか？"}, class: "text-dark" %></h2>
           <p class="m-2">作成者：<%= room.name %></p>
           <p class="m-2 ">作成日：<%= room.created_at.strftime('%Y/%m/%d %H:%M') %></p>
           <span><%= link_to 'Delete' , room_path(room), method: :delete, data:{ confirm: "本当に#{room.title}を消去してよろしいですか？"},class: "text-dark child mr-5 mb-4" %></span>
