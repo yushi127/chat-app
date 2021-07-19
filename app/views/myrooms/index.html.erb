@@ -15,7 +15,7 @@
     <% @rooms.each do |room| %>
       <div class="with45set m-2 color-skyblue rounded parent py-2">
         <div class="p-5">
-          <h2 class="m-2"><%= link_to room[2] , chatroom_path(room),data:{ confirm: "#{room[2]}に参加しますか？"}, class: "text-dark" %></h2>
+          <h2 class="m-2"><%= link_to room[2] , chatroom_path(room), class: "text-dark" %></h2>
           <p class="m-2">作成者：<%= room[1] %></p>
           <p class="m-2 ">作成日：<%= room[3] %></p>
           <span><%= link_to 'Delete' , myroom_path(room), method: :delete, data:{ confirm: "本当に#{room[2]}を消去してよろしいですか？"},class: "text-dark child mr-5 mb-4" %></span>
