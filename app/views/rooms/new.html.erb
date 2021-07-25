@@ -3,12 +3,20 @@
     <h2 class="text-center">New room</h2>
     <%= form_with(model: @room, local: true) do |f| %>
       <div class="form-group">
-        <label>YourName</label>
+        <label>作成者</label>
         <%= f.text_field :name, value:@user.username ,:readonly => true, class: "form-control" %>
       </div>
       <div class="form-group">
-        <label>Title</label>
+        <label>授業名</label>
         <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label>学部</label>
+        <%= f.text_field :department, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label>学期</label>
+        <%= f.text_field :semester, class: "form-control" %>
       </div>
       <div class="text-center">
         <%= f.submit "save", class: "btn btn-primary" %>

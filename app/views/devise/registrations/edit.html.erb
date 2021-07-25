@@ -5,7 +5,6 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field">
-      <%= f.label :アイコン %><br />
       <div class="circle-avatar">
         <img id="avatar_img_prev" src="#" class='d-none' />  <!-- 1行追加 -->
         <% if current_user.persisted? && current_user.user_icon? %>

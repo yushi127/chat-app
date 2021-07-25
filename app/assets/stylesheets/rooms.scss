@@ -5,9 +5,21 @@
 
 *{
   box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: Sacramento;
+}
+#headerList ul{
+  display:inline;
+  margin: 0;
+  padding: 0;
+  }
+header{
+  margin: 0;
+  
 }
 body{
-  margin: 0;
+  margin: 100px;
   text-align: center;
 }
 .max{
@@ -46,7 +58,7 @@ a{
 .child{
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 10;
 }
 
 // 検索boxのcss
@@ -55,6 +67,7 @@ a{
   padding:0 10px;/*テキスト位置調整*/	 
   border-radius:5px 5px 5px 5px;/*検索ボックスの角を丸める*/		
   background:#eee;/*検索ボックスの背景カラー*/		
+  width:50%;
 }
 .formbtmcss{
   top:0;
@@ -77,9 +90,15 @@ a{
     object-fit: cover;
     //タテヨコ比を変えないままトリミング
   }
-
-
-  
+  .mini_img{
+    width: 40px;
+    height: 40px;
+    //サイズ指定
+    border-radius: 100px;
+    //画像を丸くする
+    object-fit: cover;
+    //タテヨコ比を変えないままトリミング
+  }
 
   #img_field {
     width: 306px;

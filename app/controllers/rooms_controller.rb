@@ -31,6 +31,8 @@ class RoomsController < ApplicationController
   def destroy
     @room = Room.find(params[:id])
     @room.destroy
+
+
     redirect_to root_path, notice: 'Success!'
   end
 
@@ -57,7 +59,7 @@ class RoomsController < ApplicationController
       @user = current_user
     end
       def room_params
-      params.require(:room).permit(:name, :title,:created_at)
+      params.require(:room).permit(:name, :title,:semester,:department,:created_at)
     end
   
 end
