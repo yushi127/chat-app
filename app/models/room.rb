@@ -6,6 +6,7 @@ class Room < ApplicationRecord
 
 
   def self.search(keyword)
-    where(["title like? OR name like?", "%#{keyword}%", "%#{keyword}%"])
+    where(["title like? OR name like? OR semester like?  OR department like? ", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
   end
+  
 end
