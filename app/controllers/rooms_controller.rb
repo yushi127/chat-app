@@ -2,7 +2,8 @@ class RoomsController < ApplicationController
   before_action :set_user
 
   def index
-    @rooms = Room.all
+    @rooms = Room.all  
+    @rerations =  Relation.all  
   end
   
   def search
@@ -32,10 +33,8 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.destroy
 
-
     redirect_to root_path, notice: 'Success!'
   end
-
 
   def show
     @room = Room.find(params[:id])
@@ -50,7 +49,9 @@ class RoomsController < ApplicationController
       flash[:alert] = "#{@room.title}には既に参加しています!"
     end
 
+
   end
+
   def setting
   end
 
