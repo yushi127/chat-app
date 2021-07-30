@@ -3,12 +3,20 @@
     <h2 class="text-center">New room</h2>
     <%= form_with(model: @room, local: true) do |f| %>
       <div class="form-group">
-        <label>YourName</label>
+        <label>作成者</label>
         <%= f.text_field :name, value:@user.username ,:readonly => true, class: "form-control" %>
       </div>
       <div class="form-group">
-        <label>Title</label>
+        <label>授業名</label>
         <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label>学部</label>
+        <%= f.select :department,{'神学部': 1, '社会学部': 2, '経済学部': 3, '文学部': 4, '法学部': 5, '商学部': 6, '人間福祉学部': 7, '国際学部': 8,'教育学部': 9,'総合政策学部': 10,'理学部': 11,'工学部': 12,'建築学部': 13,'生命環境学部': 14,'大学院': 15}, { include_blank: '選択してください'}, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label>学期</label>
+        <%= f.select :semester, {'春': 1, '秋': 2}, { include_blank: '選択してください'},  class: "form-control" %>
       </div>
       <div class="text-center">
         <%= f.submit "save", class: "btn btn-primary" %>

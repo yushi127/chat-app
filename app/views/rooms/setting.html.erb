@@ -10,8 +10,8 @@
 
 
     <div>
-      <br><h3 class="text-white"><%= "username:  #{@user.username}" %></h3>
-      <br><h3 class="text-white"><%= "username:  #{@user.email}" %></h3>
+      <br><h3 class=""><%= "username:  #{@user.username}" %></h3>
+      <br><h3 class=""><%= "username:  #{@user.email}" %></h3>
     </div>
     <% if user_signed_in? && @user.id == current_user.id %>
       <br><%= link_to "プロフィール情報を変更する",  edit_user_registration_path(current_user), class: "btn btn-outline-danger" %>
