@@ -17,12 +17,13 @@ class ChatroomController < ApplicationController
   def new
     @message = Message.new
   end
-def create
-  @message = Message.new(messages_params)
-  @message.save
-  @message = Message.new(content: params[:content],user_id: current_user.id)
-   
+  
+  def create
+    @message = Message.new(messages_params)
+    @message.save
+    @message = Message.new(content: params[:content],user_id: current_user.id) 
   end
+
   def show
     @room = Room.find(params[:id])
     @user = current_user

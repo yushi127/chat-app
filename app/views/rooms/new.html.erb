@@ -12,11 +12,14 @@
       </div>
       <div class="form-group">
         <label>学部</label>
-        <%= f.select :department,{'神学部': 1, '社会学部': 2, '経済学部': 3, '文学部': 4, '法学部': 5, '商学部': 6, '人間福祉学部': 7, '国際学部': 8,'教育学部': 9,'総合政策学部': 10,'理学部': 11,'工学部': 12,'建築学部': 13,'生命環境学部': 14,'大学院': 15}, { include_blank: '選択してください'}, class: "form-control" %>
+
+       <%= f.select :department, ['神学部', '社会学部', '経済学部', '文学部', '法学部', '商学部', '人間福祉学部', '国際学部', '教育学部', '総合政策学部', '理学部', '工学部', '建築学部', '生命環境学部', '大学院'], { include_blank: '選択してください'}, { class: "form-control" } %>
+
+        
       </div>
       <div class="form-group">
         <label>学期</label>
-        <%= f.select :semester, {'春': 1, '秋': 2}, { include_blank: '選択してください'},  class: "form-control" %>
+        <%= f.select :semester, ['春', '秋'], { include_blank: '選択してください'},  class: "form-control" %>
       </div>
       <div class="text-center">
         <%= f.submit "save", class: "btn btn-primary" %>
