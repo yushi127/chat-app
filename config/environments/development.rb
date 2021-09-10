@@ -67,6 +67,6 @@ Rails.application.configure do
     :domain => 'smtp.gmail.com',
     :user_name => "smtp.server.you@gmail.com", #gmailアドレス
     :password => "Youserver15", #gmailパスワード
-    :authentication => 'login',
+    :authentication => 'login'
   }
 end
