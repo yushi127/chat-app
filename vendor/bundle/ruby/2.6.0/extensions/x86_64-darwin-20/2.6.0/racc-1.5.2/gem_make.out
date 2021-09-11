@@ -1,0 +1,16 @@
+current directory: /Users/yoshikinaruo/Documents/GitHub/chat-app/vendor/bundle/ruby/2.6.0/gems/racc-1.5.2/ext/racc/cparse
+/Users/yoshikinaruo/.rbenv/versions/2.6.7/bin/ruby -I /Users/yoshikinaruo/.rbenv/versions/2.6.7/lib/ruby/2.6.0 -r ./siteconf20210911-14447-bhag51.rb extconf.rb
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/yoshikinaruo/Documents/GitHub/chat-app/vendor/bundle/ruby/2.6.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /Users/yoshikinaruo/Documents/GitHub/chat-app/vendor/bundle/ruby/2.6.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+
+current directory: /Users/yoshikinaruo/Documents/GitHub/chat-app/vendor/bundle/ruby/2.6.0/gems/racc-1.5.2/ext/racc/cparse
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20210911-14447-wwkpb4/racc
