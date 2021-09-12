@@ -1,8 +1,11 @@
   <p class="notice"><%= notice %></p>
+      
+  <header class="color-skyblue d-flex justify-content-around align-items-center">
+
   <%# <p class="alert"><%= alert %>
   <h1 class="pl-5 px-2 pt-0 mb-1 text-white">My  room</h1>
-  <h3 class="pl-5 px-2 pt-0 mb-1 text-white">search</h3>
   <div class="search-form">
+  <h3 class="pl-5 px-2 pt-0 mb-1 text-white">search</h3>
     <div class="pl-5">
       <%= form_with url: search_path, method: :get, local: true do |f| %>
         <%= f.text_field :keyword, value: @keyword, class: "formboxcss" %>
@@ -10,6 +13,7 @@
       <% end %>
     </div>
   </div>
+  </header>
   <div class="d-flex justify-content-around flex-wrap text-center w-100 p-3">
   <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
     <% @rooms.each do |room| %>
