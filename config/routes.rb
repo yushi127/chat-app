@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  # get 'users/expulsion'
   devise_for :users
   root 'rooms#index'
   # root "home#index"
   get 'search' => 'rooms#search'
   get 'setting' => 'rooms#setting'
+  get 'users/:id/show' => 'users#show' , as: :userexplusion
+  put 'users/explusion' => 'users#explusion'
+  delete 'users/:id' => 'users#destroy', as: :del_userexplusion
+
+
   resources :myrooms
   resources :rooms
   resources :users

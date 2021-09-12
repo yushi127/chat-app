@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
   def index
     @rooms = Room.all  
     @rerations =  Relation.all  
+    @sampleuser = User.where(id: 12).first
   end
   
   def search
@@ -65,7 +66,7 @@ class RoomsController < ApplicationController
     def set_user
       @user = current_user
     end
-      def room_params
+    def room_params
       params.require(:room).permit(:name, :title,:semester,:department,:created_at)
     end
 
