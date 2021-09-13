@@ -27,17 +27,37 @@ class MyroomsController < ApplicationController
     @search_params = room_search_params  #検索結果の画面で、フォームに検索した値を表示するために、paramsの値をビューで使えるようにする
     @searchrooms = Room.search(@search_params)  #Reservationモデルのsearchを呼び出し、引数としてparamsを渡している。
     # ///////////////////////////////////////////////////////
+#     @relationusers = Relation.where(userid: @user.id)
+#     @aa = @relationusers
+#     count = @searchrooms.length
+#     i = 0
+#     @relationrooms = []
+#     while i < count 
+#       @aaa = @searchrooms.where(id: @relationusers[i].roomid).first
+# # @relationmyroom
+#       @relationroom = Room.where(id: @relationmyroom.id)
+#       @relationrooms.push(@relationroom)
+#       i+=1
+#     end
+    @relationrooms = []
     @relationusers = Relation.where(userid: @user.id)
     @aa = @relationusers
     i = 0
-    count = @relationusers.length
-    @relationrooms = []
-    while i < count 
-      @relationroom = @searchrooms.where(id: @relationusers[i].roomid).first
-      @relationrooms.push(@relationroom)
+    counti = @relationusers.length
+    countj = @searchrooms.length
+
+    while i <  counti 
+      # byebug
+      j=0
+        while j <  countj
+          @relationmyroom = Room.where(id: @searchrooms[j].id).where(id:@relationusers[i].roomid).first
+          unless @relationmyroom.blank?  
+            @relationrooms.push(@relationmyroom)
+          end
+          j+=1
+        end
       i+=1
     end
-    # byebug
     render "index"
   end
 
