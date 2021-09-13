@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'rooms#index'
   # root "home#index"
+  get 'myrooms/search' => 'myrooms#search', as: :myroomsearch
   get 'search' => 'rooms#search'
   get 'setting' => 'rooms#setting'
   get 'users/:id/show' => 'users#show' , as: :userexplusion
