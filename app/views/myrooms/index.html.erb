@@ -44,15 +44,15 @@
   <div class="mt-5 pt-5 d-flex justify-content-around flex-wrap text-center w-100 px-3 pb-3">
   <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
     <% unless @search_params.blank? %>
-      <% @searchrooms.reverse_each do |searchroom| %>
+      <% @relationrooms.reverse_each do |searchroom| %>
         <div class="shadow with45set mx-2 mb-4 rounded parent">
           <div class="p-5 color-skyblue">
-            <h2 class="m-2 py-4"><%= link_to searchroom.title , chatroom_path(searchroom),data:{ confirm: "#{searchroom.title}に参加しますか？"}, class: "text-dark" %></h2>
+            <h2 class="m-2 py-4"><%= searchroom.title %></h2>
             <div class="child mr-4">
               <% count = 0 %>
               <% @rerations.each do |reration| %>
                 <% if searchroom.id === reration.roomid %>
-                  <% count += 1 %>              
+                  <% count += 1 %>     
                 <% end %>
               <% end %>
               <p>参加人数: <%= count %></p>
@@ -71,7 +71,6 @@
 
     <% if  @search_params.blank? %>
       <% @relationrooms.reverse_each do |room| %>
-        
         <div class="shadow with45set mx-2 mb-4 rounded parent">
           <div class="p-5 color-skyblue">
             <h2 class="m-2 py-4"><%= room.title %></h2>

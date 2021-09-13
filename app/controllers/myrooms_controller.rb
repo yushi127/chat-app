@@ -18,25 +18,9 @@ class MyroomsController < ApplicationController
       @relationrooms.push(@relationroom)
       i+=1
     end
-    
-
-    
-
-    
-    # for relationuser in @relationusers do  
-    #   @relationroom = Room.where(id: @relationuser.roomid)
-    # end
-    
-    
-    # @relationuserandroom  = @relationroom.where(userid: @user.id)
-    
-    # @rooms.push([@roomnum.id,@roomnum.name,@roomnum.title,@roomnum.created_at.strftime('%Y/%m/%d %H:%M'),@roomnum.created_at])
-    # end
   end
   def search
-    # @rooms = Room.search(params[:keyword])
-    # @keyword = params[:keyword]
-    # render "index"
+    @rerations =  Relation.all  
 
     @rooms = Room.all  
     @rerations =  Relation.all  
@@ -47,12 +31,13 @@ class MyroomsController < ApplicationController
     @aa = @relationusers
     i = 0
     count = @relationusers.length
-    while i <  count 
+    @relationrooms = []
+    while i < count 
       @relationroom = @searchrooms.where(id: @relationusers[i].roomid).first
       @relationrooms.push(@relationroom)
       i+=1
     end
-    byebug
+    # byebug
     render "index"
   end
 
