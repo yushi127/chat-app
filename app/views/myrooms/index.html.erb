@@ -1,58 +1,99 @@
+<div class="bottmpad">
   <p class="notice"><%= notice %></p>
       
   <header class="color-skyblue d-flex justify-content-around align-items-center">
+    <h1 class="pl-5 px-2 py-3 m-0 text-black text-center">All room</h1>
+    <div class="d-flex justify-content-around align-items-center">
+      <div class="search-form ml-5 ">
+        <div>
+          <!-- <%= form_with url: search_path, method: :get, local: true do |f| %>
+            <%= f.text_field :keyword, value: @keyword, class: "formboxcss" %>
+            <%= f.submit "search", class: "formbtmcss px-1" %>
+          <% end %> -->
 
-  <%# <p class="alert"><%= alert %>
-  <h1 class="pl-5 px-2 pt-0 mb-1 text-white">My  room</h1>
-  <div class="search-form">
-  <h3 class="pl-5 px-2 pt-0 mb-1 text-white">search</h3>
-    <div class="pl-5">
-      <%= form_with url: search_path, method: :get, local: true do |f| %>
-        <%= f.text_field :keyword, value: @keyword, class: "formboxcss" %>
-        <%= f.submit "search", class: "formbtmcss" %>
+      <%= form_with(scope: :search, url: myroomsearch_path, method: :get, local: true, class: "py-3") do |f| %>
+        <label>作成者名</label>
+        <%= f.text_field :name, placeholder: '半角のみ' %>
+        <label>授業名</label>
+        <%= f.text_field :title, placeholder: '半角のみ' %>
+
+        <div class="form-group">
+          <label>学期</label>
+          <%= f.select :semester, ['春', '秋'], { include_blank: '選択してください'}, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <label>学部</label>
+            <%= f.select :department,['神学部', '社会学部', '経済学部', '文学部', '法学部', '商学部', '人間福祉学部', '国際学部', '教育学部', '総合政策学部', '理学部', '工学部', '建築学部', '生命環境学部', '大学院'], { include_blank: '選択してください'},class: "form-control" %>
+        </div>
+
+        <%= f.submit "search", class: "formbtmcss px-1" %>
       <% end %>
-    </div>
-  </div>
-  </header>
-  <div class="d-flex justify-content-around flex-wrap text-center w-100 p-3">
-  <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
-    <% @rooms.each do |room| %>
-      <div class="with45set m-2 color-skyblue rounded parent py-2">
-        <div class="p-5">
-          <h2 class="m-2"><%= link_to room[2] , chatroom_path(room), class: "text-dark" %></h2>
-          <p class="m-2">作成者：<%= room[1] %></p>
-          <p class="m-2 ">作成日：<%= room[3] %></p>
-          <span><%= link_to 'Delete' , myroom_path(room), method: :delete, data:{ confirm: "本当に#{room[2]}を消去してよろしいですか？"},class: "text-dark child mr-5 mb-4" %></span>
+
         </div>
       </div>
+
+      <div class="text-center">
+        <h5 class="m-0 ml-4"><%= image_tag @user.user_icon.to_s, class:"mini_img" %></h5>
+        <h5 class="mt-3 ml-4 "><%= @user.username %></h5>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="mt-5 pt-5 d-flex justify-content-around flex-wrap text-center w-100 px-3 pb-3">
+  <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
+    <% unless @search_params.blank? %>
+      <% @searchrooms.reverse_each do |searchroom| %>
+        <div class="shadow with45set mx-2 mb-4 rounded parent">
+          <div class="p-5 color-skyblue">
+            <h2 class="m-2 py-4"><%= link_to searchroom.title , chatroom_path(searchroom),data:{ confirm: "#{searchroom.title}に参加しますか？"}, class: "text-dark" %></h2>
+            <div class="child mr-4">
+              <% count = 0 %>
+              <% @rerations.each do |reration| %>
+                <% if searchroom.id === reration.roomid %>
+                  <% count += 1 %>              
+                <% end %>
+              <% end %>
+              <p>参加人数: <%= count %></p>
+            </div>
+          </div>
+          <div class="h-25 parent">
+            <p class="m-3">作成者：<%= searchroom.name %></p>
+            <p class="m-3">年度：<%= searchroom.created_at.strftime('%Y') %></p>
+            <p class="m-3">学期：<%= searchroom.semester %></p>
+            <p class="m-3">学部：<%= searchroom.department %></p>
+            <span class="m-2"><%= link_to 'Delete' , myroom_path(searchroom), method: :delete, data:{ confirm: "本当に#{searchroom.title}を消去してよろしいですか？"},class: "child mr-5 mb-5 text-dark"%></span>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if  @search_params.blank? %>
+      <% @relationrooms.reverse_each do |room| %>
+        
+        <div class="shadow with45set mx-2 mb-4 rounded parent">
+          <div class="p-5 color-skyblue">
+            <h2 class="m-2 py-4"><%= room.title %></h2>
+            <div class="child mr-4">
+              <% count = 0 %>
+              <% @rerations.each do |reration| %>
+                <% if room.id === reration.roomid %>
+                  <% count += 1 %>     
+                <% end %>
+              <% end %>
+              <p>参加人数: <%= count %></p>
+            </div>
+          </div>
+          <div class="h-25 parent">
+            <p class="m-3">作成者：<%= room.name %></p>
+            <p class="m-3">年度：<%= room.created_at.strftime('%Y') %></p>
+            <p class="m-3">学期：<%= room.semester %></p>
+            <p class="m-3">学部：<%= room.department %></p>
+            <span class="m-2"><%= link_to 'Delete' , myroom_path(room), method: :delete, data:{ confirm: "本当に#{room.title}を消去してよろしいですか？"},class: "child mr-5 mb-5 text-dark"%></span>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
-
-
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-striped">
-        <thead class="thead-light" >
-          <tr>
-            <th>ID</th>
-            <th>userid</th>
-            <th>roomid</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @rooms.each do |relation| %>
-            <tr>
-              <td><%= relation[0] %></td>
-              <td><%= relation[1] %></td>
-              <td><%= relation[2] %></td>
-              <td><%= relation[3] %></td>
-
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-<div>
-
-
+</div>

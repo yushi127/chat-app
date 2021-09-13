@@ -40,7 +40,6 @@
     </div>
   </header>
 
-  <%= link_to @sampleuser.username, userexplusion_path(@sampleuser.id) %>
   <div>
     <h3 class="text-right  mr-5 mt-5 mb-3"><%= link_to '+New Room', new_room_path, class:"text-dark" %></h3>
   </div>
@@ -74,7 +73,8 @@
 
     <% c = "red" %>
     <% if  @search_params.blank? %>
-      
+      <%= link_to @sampleuser.username, userexplusion_path(@sampleuser.id) %>
+
       <% @rooms.reverse_each do |room| %>
       <% if  %>
         
