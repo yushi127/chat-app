@@ -14,7 +14,6 @@
     <div class="bottmpad m-0">
       <%= yield %>
       <% if user_signed_in? %>
-        <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-dark" %></p>
         
       <footer>
         <div class="blue text-center fixed-bottom p-2">
