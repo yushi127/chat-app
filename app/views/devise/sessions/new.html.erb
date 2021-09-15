@@ -1,35 +1,40 @@
-<div class="text-center heighthun">
-<div class="pt-3">
-<div class="mt-5">
-<div class="border border-dark  mx-auto w-50 py-4">
-<h2><%= t('.sign_in') %></h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-  <div class="field">
-    <%= f.label :login %><br />
-    <%= f.text_field :login, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit t('.sign_in') %>
-  </div>
-<% end %>
-
+<div class="text-center" style="padding:50px 0">
+	<div class="logo">login</div>
+	<!-- Main Form -->
+	<div class="login-form-1">
+	  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+		<form id="login-form" class="text-left">
+			<div class="login-form-main-message"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<div class="form-group">
+					  <div class="field">
+							<p ><%= f.text_field :login, autofocus: true, autocomplete: "email",class:"p-0 form-control",placeholder:"username" %></p>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="field">
+							<p><%= f.password_field :password, autocomplete: "current-password",class:"p-0 mt-3 form-control",placeholder:"password"  %></p>
+						</div>
+					</div>
+					<div class="form-group login-group-checkbox">
+            <% if devise_mapping.rememberable? %>
+							<div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+							</div>
+            <% end %>
+					</div>
+				</div>
+				<div class="actions ">
+		  		<%= button_tag '<i class="p-set fa fa-chevron-right indicate"></i>'.html_safe,:type => "submit" ,class:"actionsbtn login-button" %>
+        </div>
+			</div>
+			<div class="etc-login-form">
 <%= render "devise/shared/links" %>
-</div>
-</div>
-</div>
+			</div>
+		</form>
+		<% end %>
+	</div>
+	<!-- end:Main Form -->
 </div>

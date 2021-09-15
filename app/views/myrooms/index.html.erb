@@ -34,19 +34,19 @@
       </div>
 
       <div class="text-center">
-        <h5 class="m-0 ml-4"><%= image_tag @user.user_icon.to_s, class:"mini_img" %></h5>
-        <h5 class="mt-3 ml-4 "><%= @user.username %></h5>
+        <h6 class="m-0 ml-4 "><%= link_to image_tag(@user.user_icon.to_s) , setting_path, class: "mini_img text-dark " %></h6>
+        <h2 class="mt-1 ml-4 "><%= @user.username %></h2>
       </div>
     </div>
   </header>
 
 
-  <div class="mt-5 pt-5 d-flex justify-content-around flex-wrap text-center w-100 px-3 pb-3">
+  <div class="roomwrap mt-5 pt-5 d-flex justify-content-around flex-wrap text-center w-100 px-3 pb-3">
   <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
     <% unless @search_params.blank? %>
       <% @relationrooms.reverse_each do |searchroom| %>
-        <div class="shadow with45set mx-2 mb-4 rounded parent">
-          <div class="p-5 color-skyblue">
+        <div class="room shadow with45set mx-2 mb-4 rounded parent">
+          <div class="roomcolor p-5">
             <h2 class="m-2 py-4"><%= searchroom.title %></h2>
             <div class="child mr-4">
               <% count = 0 %>
@@ -71,8 +71,8 @@
 
     <% if  @search_params.blank? %>
       <% @relationrooms.reverse_each do |room| %>
-        <div class="shadow with45set mx-2 mb-4 rounded parent">
-          <div class="p-5 color-skyblue">
+        <div class="room shadow with45set mx-2 mb-4 rounded parent">
+          <div class="roomcolor p-5 ">
             <h2 class="m-2 py-4"><%= room.title %></h2>
             <div class="child mr-4">
               <% count = 0 %>

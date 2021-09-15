@@ -99,6 +99,10 @@ a{
     object-fit: cover;
     //タテヨコ比を変えないままトリミング
   }
+  .height40width40{
+    height: 40px;
+    width: 40px;
+  }
 
   #img_field {
     width: 306px;
@@ -131,6 +135,24 @@ a{
     }
   }
 
-  .red{
-    background-color: red;
+  .roomwrap .room:nth-child(n) .roomcolor{
+    background-color: #837aff;
+  }
+  .roomwrap .room:nth-child(2n) .roomcolor{
+    background-color: #c992ee;
+  }
+  .roomwrap .room:nth-child(3n) .roomcolor{
+    background-color: #aae4ff;
+  }
+  .roomwrap .room:nth-child(5n) .roomcolor{
+    background-color: #8bf8af;
+  }
+  .roomwrap .room:nth-child(7n) .roomcolor{
+    background-color: #ffc2c2;
+  }
+  .roomwrap .room:nth-child(9n) .roomcolor{
+    background-color: #ffaaaa;
+  }
+  .roomwrap .room:nth-child(11n) .roomcolor{
+    background-color: #fff4b3;
   }
