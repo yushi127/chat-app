@@ -3,6 +3,8 @@ class Room < ApplicationRecord
   validates :title, presence: true
   validates :semester, presence: true
   validates :department, presence: true
+  has_many :messages
+
 
 
   # def self.search(keyword)
