@@ -4,6 +4,9 @@ class Room < ApplicationRecord
   validates :semester, presence: true
   validates :department, presence: true
 
+  has_many :messages
+
+
 
   # def self.search(keyword)
   #   where(["title like? OR name like? OR semester like?  OR department like? ", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])

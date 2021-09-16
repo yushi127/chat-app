@@ -32,22 +32,22 @@
 
         </div>
       </div>
-      
+
       <div class="text-center">
-        <h6 class="m-0 ml-4 "><%= link_to image_tag(@user.user_icon.to_s) , setting_path, class: "mini_img text-dark " %></h6>
-        <h2 class="mt-1 ml-4 "><%= @user.username %></h2>
+        <h5 class="m-0 ml-4"><%= image_tag @user.user_icon.to_s, class:"mini_img" %></h5>
+        <h5 class="mt-3 ml-4 "><%= @user.username %></h5>
       </div>
     </div>
   </header>
-
   <div>
     <h3 class="text-right  mr-5 mt-5 mb-3"><%= link_to '+New Room', new_room_path, class:"text-dark" %></h3>
   </div>
 
-  <div class="roomwrap d-flex justify-content-around flex-wrap text-center w-100 px-3 pb-3">
+  <div class="d-flex justify-content-around flex-wrap text-center w-100 px-3 pb-3">
   <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
     <% unless @search_params.blank? %>
       <% @searchrooms.reverse_each do |searchroom| %>
+
         <div class="room shadow with45set mx-2 mb-4 rounded parent bg-white">
           <div class="roomcolor p-5">
             <h2 class="m-2 py-4"><%= link_to searchroom.title , chatroom_path(searchroom),data:{ confirm: "#{searchroom.title}に参加しますか？"}, class: "text-dark" %></h2>
@@ -71,11 +71,9 @@
       <% end %>
     <% end %>
 
-    <% c = "red" %>
     <% if  @search_params.blank? %>
-      <%= link_to @sampleuser.username, userexplusion_path(@sampleuser.id) %>
-
       <% @rooms.reverse_each do |room| %>
+
         
         <div class="room shadow with45set mx-2 mb-4 rounded parent bg-white">
           <div class="roomcolor p-5 ">
@@ -103,4 +101,62 @@
   </div>
 
 
+
+
+
+
+  <h2>Questions</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead class="thead-light" >
+          <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @rooms.each do |room| %>
+            <tr>
+              <td><%= room.id %></td>
+              <td><%= room.name %></td>
+              <td><%= room.title %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<div>
+
+
+  <h2>Questions</h2>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead class="thead-light" >
+          <tr>
+            <th>ID</th>
+            <th>username</th>
+            <th>email</th>
+            <th>password</th>
+            <th>user_icon</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><%= @user.id %></td>
+              <td><%= @user.username %></td>
+              <td><%= @user.email %></td>
+              <td><%= @user.password %></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <%= image_tag @user.user_icon.to_s, class:"" %>
 <div>

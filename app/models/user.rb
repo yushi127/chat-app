@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+    has_many :messages
+    # has_many :rooms, dependent: :destroy
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -6,7 +9,7 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
-  has_many :result_todos
+
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
