@@ -1,12 +1,8 @@
-
-
-
-<div class="text-center" style="padding:50px 0">
+<div class="text-center p-200">
 	<div class="logo">edit password</div>
 	<!-- Main Form -->
 	<div class="login-form-1">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-		<form id="login-form" class="text-left">
 			<div class="main-login-form">
 				<div class="login-group">
           <%= f.label :password, t('.new_password') %><br />
@@ -29,7 +25,6 @@
 		  	<div class="mt-0 etc-login-form">
           <%= render "devise/shared/links" %>
 			</div>
-		</form>
     <% end %>
 	</div>
 	<!-- end:Main Form -->
