@@ -17,7 +17,6 @@ class RoomsController < ApplicationController
     @searchrooms = Room.search(@search_params)  #Reservationモデルのsearchを呼び出し、引数としてparamsを渡している。
 
     render "index"
-
   end
 
   def new
@@ -25,9 +24,10 @@ class RoomsController < ApplicationController
   end
   
   def create
+    @rooms = Room.all  
     @room = Room.new(room_params)
     if @room.save
-      redirect_to root_path, notice: 'Success!'
+      redirect_to root_path, notice: 'ルームを作成しました'
     else
       flash[:alert] = 'Save error!'
       render :new

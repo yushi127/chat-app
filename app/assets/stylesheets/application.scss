@@ -15,9 +15,29 @@
  */
 @import "bootstrap";
 
+.p-100{
+  padding: 4% 0 80px 0;;
+}
+.p-200{
+  padding: 5% 0 200px 0;;
 
+}
+.bottmpad{
+  padding-bottom: 150px;
+}
 
+.allbackground{
+  // background-image: url("<%= asset_path('image473034060.png') %>");
+  background-image: image-url('image473034060.png');
+  height: 100%;
+  background-size: cover;
+}
+.bg-mask{
+  background: rgba(255, 255, 255, 0.6);
+  height: 100%;
+  background-size: cover;
 
+}
 *{
  font-family: "M PLUS Rounded 1c";
 }
