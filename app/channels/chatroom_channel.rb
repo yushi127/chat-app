@@ -1,6 +1,7 @@
 class ChatroomChannel < ApplicationCable::Channel
   def subscribed
     stream_from "chatroom_channel"
+    stream_from "chatroom_channel#{params['user_id']}"
   end
 
   def unsubscribed
@@ -8,10 +9,9 @@ class ChatroomChannel < ApplicationCable::Channel
   end
 
   
-  
   def speak(data)
-   message = Message.create!(content: data['message'], user_id: data['user_id'])
-    template = ApplicationController.render_with_signed_in_user(partial: 'messages/message', locals:{message: message})
-    ActionCable.server.broadcast 'chatroom_channel',template
+    # Message.create! content: data['message'], user_id: current_user.id
+   Message.create!(content: data['message'], user_id: ['current_user.id']) 
+    ActionCable.server.broadcast 'chatroom_channel' ,data['message']
   end
 end

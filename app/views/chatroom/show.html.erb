@@ -211,13 +211,11 @@ position: relative;
 <div class="title">Kwansei-Chat</div>
 </div>
 <ul class="messages" id="message">
-
  <%= render @messages %> 
-
 </ul>
 <div class="bottom_wrapper clearfix">
 <div class="message_input_wrapper">
-<input class="message_input" placeholder="ここに入力してね..."  id="chatInput" data_user="<%= current_user.id %>"/>
+<input class="message_input" placeholder="ここに入力してね..."  id="chatInput" data_user="<%= current_user.id%>" room_id="<%= @room.id%>"/>
 </div>
 <div class="send_message" id="button">
 <div class="icon">

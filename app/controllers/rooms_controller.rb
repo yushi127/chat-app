@@ -4,7 +4,6 @@ class RoomsController < ApplicationController
   def index
     @rooms = Room.all  
     @rerations =  Relation.all  
-    @sampleuser = User.where(id: 12).first
   end
   
   def search
@@ -15,7 +14,6 @@ class RoomsController < ApplicationController
     @rerations =  Relation.all  
     @search_params = room_search_params  #検索結果の画面で、フォームに検索した値を表示するために、paramsの値をビューで使えるようにする
     @searchrooms = Room.search(@search_params)  #Reservationモデルのsearchを呼び出し、引数としてparamsを渡している。
-
     render "index"
 
   end
@@ -37,12 +35,12 @@ class RoomsController < ApplicationController
   def edit
   end
 
-  # def destroy
-  #   @room = Room.find(params[:id])
-  #   @room.destroy
+  def destroy
+    @room = Room.find(params[:id])
+    @room.destroy
 
-  #   redirect_to root_path, notice: 'Success!'
-  # end
+    redirect_to root_path, notice: 'Success!'
+  end
 
   def show
     @room = Room.find(params[:id])
@@ -67,7 +65,7 @@ class RoomsController < ApplicationController
     def set_user
       @user = current_user
     end
-    def room_params
+      def room_params
       params.require(:room).permit(:name, :title,:semester,:department,:created_at)
     end
 

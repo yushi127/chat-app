@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
-  has_many :result_todos
+
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
