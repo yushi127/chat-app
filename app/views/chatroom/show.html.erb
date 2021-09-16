@@ -227,23 +227,20 @@ position: relative;
 
 
 
-<%= form_with(model: @message, local: true) do |f| %>
-  <div class="form-group">
-      <label>コメント</label>
-      <p class="messages" id="message"><%= f.text_field :content, class: "form-control" %></p>
-      </div>
-
-      <div class="form-group">
-      <%= f.hidden_field :user_id, :value => @user.id %> 
-      </div>
-
-      <div class="form-group">
-     <%= f.hidden_field :room_id, :value => @room.id %>
-      </div>
-
-      <div class="text-center">
-        <%= f.submit "save", class: "btn btn-primary" %>
-      </div>
+<%= form_with(model: @newmessage, local: true) do |f| %>
+  <div class="field">
+    <label>コメント</label>
+    <p class="messages" id="message"><%= f.text_field :content, class: "form-control" %></p>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => @user.id %> 
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => @user.id %> 
+  </div>
+  <div class="field">
+    <%= f.submit "save", class: "btn btn-primary" %>
+  </div>
 <% end %>
 </div>
 <div class="send_message" id="button">

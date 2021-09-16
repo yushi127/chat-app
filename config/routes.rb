@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   get 'users/:id/show' => 'users#show' , as: :userexplusion
   put 'users/explusion' => 'users#explusion'
   delete 'users/:id' => 'users#destroy', as: :del_userexplusion
-  post 'chatroom/:id' => 'chatroom#show' , as: :newmessage
+  # post 'message/:id' => 'message#create' , as: :
 
   resources :myrooms
-  resources :rooms
-  resources :users
-  resources :chatroom
+  resources :rooms do
+    resources :messages
+  end
+  resources :users 
   # get 'chatroom' => 'chatroom#show'
   # get 'chatroom' => 'chatroom#create'
   mount ActionCable.server => '/cable'

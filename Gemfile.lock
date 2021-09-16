@@ -99,7 +99,6 @@ GEM
       devise (>= 4.8.0)
     erubi (1.10.0)
     execjs (2.8.1)
-    ffi (1.15.4)
     ffi (1.15.4-x64-mingw32)
     globalid (0.5.2)
       activesupport (>= 5.0)
@@ -133,12 +132,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.4-x64-mingw32)
       racc (~> 1.4)
-    nokogiri (1.12.4-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.12.4-x86_64-linux)
-      racc (~> 1.4)
     orm_adapter (0.5.0)
-    pg (1.2.3)
     pg (1.2.3-x64-mingw32)
     popper_js (1.16.0)
     pry (0.14.1)
@@ -243,8 +237,6 @@ GEM
 
 PLATFORMS
   x64-mingw32
-  x86_64-darwin-20
-  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
@@ -278,4 +270,4 @@ RUBY VERSION
    ruby 2.6.7p197
 
 BUNDLED WITH
-   2.2.27
+   2.2.26

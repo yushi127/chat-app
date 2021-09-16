@@ -24,6 +24,7 @@ class RoomsController < ApplicationController
   
   def create
     @room = Room.new(room_params)
+    
     if @room.save
       redirect_to root_path, notice: 'Success!'
     else
@@ -40,11 +41,8 @@ class RoomsController < ApplicationController
     @room.destroy
 
     redirect_to root_path, notice: 'Success!'
-  end
-
-  def show
-    @room = Room.find(params[:id])
-    @user = current_user
+       
+    
     @relation = Relation.new
     @relation.userid = @user.id 
     @relation.roomid = @room.id
@@ -54,8 +52,18 @@ class RoomsController < ApplicationController
     else
       flash[:alert] = "#{@room.title}には既に参加しています!"
     end
+  end
 
+  def show
+    @room = Room.find(params[:id])
+    @user = current_user
+    # ///////////////////////////////////// 
+    # @messages = Message.where()
+    
+    # ///////////////////////////////////// 
+    
 
+    @message = Message.new
   end
 
   def setting
