@@ -17,4 +17,11 @@ protected
     renderer = self.renderer.new('warden' => proxy)
     renderer.render(*args)
   end
+
+  # def set_user_id_to_cookie
+  #   if current_user
+  #     cookies.signed["user.id"] = current_user.id
+  #   end
+  # end
+  
 end
