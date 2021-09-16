@@ -3,9 +3,11 @@ App.chatroom = App.cable.subscriptions.create("ChatroomChannel", {
  
   },
   disconnected: function() {},
-  received: function(message,user_id,room_id) {
-// const messages = document.getElementById('message','user_id','room_id')
-// messages.innerHTML += message //これが原因
+  received: function(message,data_user,room_id) {
+
+
+var messages = document.getElementById('message','user_id','room_id')
+messages.innerHTML += message //これが原因
   },
   speak: function(content,data_user,room_id) {
     return this.perform('speak',{message: content, user_id: data_user, rooms:room_id});

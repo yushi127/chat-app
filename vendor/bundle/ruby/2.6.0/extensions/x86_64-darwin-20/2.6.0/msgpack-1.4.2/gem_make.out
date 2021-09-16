@@ -1,5 +1,5 @@
 current directory: /Users/seibikatakashi/Desktop/webdevelop/chat-app-new/vendor/bundle/ruby/2.6.0/gems/msgpack-1.4.2/ext/msgpack
-/Users/seibikatakashi/.rbenv/versions/2.6.7/bin/ruby -I /Users/seibikatakashi/.rbenv/versions/2.6.7/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210916-4770-1rmy5cv.rb extconf.rb
+/Users/seibikatakashi/.rbenv/versions/2.6.7/bin/ruby -I /Users/seibikatakashi/.rbenv/versions/2.6.7/lib/ruby/2.6.0 -r ./siteconf20210916-44343-1sj7oul.rb extconf.rb
 checking for ruby/st.h... yes
 checking for st.h... yes
 checking for rb_str_replace() in ruby.h... yes
@@ -13,10 +13,10 @@ checking for rb_hash_clear() in ruby.h... yes
 creating Makefile
 
 current directory: /Users/seibikatakashi/Desktop/webdevelop/chat-app-new/vendor/bundle/ruby/2.6.0/gems/msgpack-1.4.2/ext/msgpack
-make DESTDIR\= clean
+make "DESTDIR=" clean
 
 current directory: /Users/seibikatakashi/Desktop/webdevelop/chat-app-new/vendor/bundle/ruby/2.6.0/gems/msgpack-1.4.2/ext/msgpack
-make DESTDIR\=
+make "DESTDIR="
 compiling buffer.c
 compiling buffer_class.c
 compiling extension_value_class.c
@@ -36,5 +36,5 @@ compiling unpacker_ext_registry.c
 linking shared-object msgpack/msgpack.bundle
 
 current directory: /Users/seibikatakashi/Desktop/webdevelop/chat-app-new/vendor/bundle/ruby/2.6.0/gems/msgpack-1.4.2/ext/msgpack
-make DESTDIR\= install
-/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20210916-4770-ho2fwb/msgpack
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20210916-44343-16g0zha/msgpack

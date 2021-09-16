@@ -1,6 +1,6 @@
 
 <div class="talk">
- <% if @message.user_id== current_user.id%> 
+ <% if current_user.id== current_user.id%> 
 <div class="talk_right">
 		<p><%= message.content %></p>
 		<a href="/">
@@ -29,7 +29,6 @@
 	vertical-align:top;
 	border-radius:50%;
 	background-size:cover;
-background-image:url('icon_left.jpg');  
 }
 .talk .talk_left p:before {  /* 左ふきだしの左三角を描画 */
 	content: '';
@@ -56,7 +55,6 @@ background-image:url('icon_left.jpg');
 	border-radius:50%;
 	background-size:cover;
 	background-position:-10px;
-	 background-image:url('icon_right.jpg'); 
 }
 .talk .talk_right {
 	float:right; 

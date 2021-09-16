@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'users/:id/show' => 'users#show' , as: :userexplusion
   put 'users/explusion' => 'users#explusion'
   delete 'users/:id' => 'users#destroy', as: :del_userexplusion
-
+  post 'chatroom/:id' => 'chatroom#show' , as: :newmessage
 
   resources :myrooms
   resources :rooms

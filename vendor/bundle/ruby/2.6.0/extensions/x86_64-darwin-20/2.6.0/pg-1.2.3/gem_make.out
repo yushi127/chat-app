@@ -1,5 +1,5 @@
 current directory: /Users/seibikatakashi/Desktop/webdevelop/chat-app-new/vendor/bundle/ruby/2.6.0/gems/pg-1.2.3/ext
-/Users/seibikatakashi/.rbenv/versions/2.6.7/bin/ruby -I /Users/seibikatakashi/.rbenv/versions/2.6.7/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210916-4770-94hlwd.rb extconf.rb
+/Users/seibikatakashi/.rbenv/versions/2.6.7/bin/ruby -I /Users/seibikatakashi/.rbenv/versions/2.6.7/lib/ruby/2.6.0 -r ./siteconf20210916-44343-15ei4aa.rb extconf.rb
 checking for pg_config... yes
 Using config values from /usr/local/bin/pg_config
 checking for libpq-fe.h... yes
@@ -21,10 +21,10 @@ creating extconf.h
 creating Makefile
 
 current directory: /Users/seibikatakashi/Desktop/webdevelop/chat-app-new/vendor/bundle/ruby/2.6.0/gems/pg-1.2.3/ext
-make DESTDIR\= clean
+make "DESTDIR=" clean
 
 current directory: /Users/seibikatakashi/Desktop/webdevelop/chat-app-new/vendor/bundle/ruby/2.6.0/gems/pg-1.2.3/ext
-make DESTDIR\=
+make "DESTDIR="
 compiling gvl_wrappers.c
 compiling pg.c
 compiling pg_binary_decoder.c
@@ -49,5 +49,5 @@ compiling pg_util.c
 linking shared-object pg_ext.bundle
 
 current directory: /Users/seibikatakashi/Desktop/webdevelop/chat-app-new/vendor/bundle/ruby/2.6.0/gems/pg-1.2.3/ext
-make DESTDIR\= install
-/usr/bin/install -c -m 0755 pg_ext.bundle ./.gem.20210916-4770-1m1rypq
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 pg_ext.bundle ./.gem.20210916-44343-17416hq

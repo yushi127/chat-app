@@ -31,8 +31,8 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(DESTDIR)./.gem.20210916-4770-1drqyzs
-sitelibdir = $(DESTDIR)./.gem.20210916-4770-1drqyzs
+sitearchdir = $(DESTDIR)./.gem.20210916-44343-dk83aj
+sitelibdir = $(DESTDIR)./.gem.20210916-44343-dk83aj
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)
@@ -81,10 +81,10 @@ cflags   = $(optflags) $(debugflags) $(warnflags)
 cxxflags = $(optflags) $(debugflags) $(warnflags)
 optflags = -O3
 debugflags = -ggdb3
-warnflags = -Wall -Wextra -Wdeclaration-after-statement -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens
+warnflags = -Wno-error=implicit-function-declaration
 cppflags = 
 CCDLFLAGS = -fno-common
-CFLAGS   = $(CCDLFLAGS) -Wno-error=implicit-function-declaration  -fno-common -pipe -Wall $(ARCH_FLAG)
+CFLAGS   = $(CCDLFLAGS) $(cflags)  -fno-common -pipe -Wall $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
 CPPFLAGS =  -I/Users/seibikatakashi/.rbenv/versions/2.6.7/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)

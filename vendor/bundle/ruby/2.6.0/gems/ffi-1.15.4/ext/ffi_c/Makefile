@@ -31,8 +31,8 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(DESTDIR)./.gem.20210916-4770-j551e4
-sitelibdir = $(DESTDIR)./.gem.20210916-4770-j551e4
+sitearchdir = $(DESTDIR)./.gem.20210916-44343-11zt4q4
+sitelibdir = $(DESTDIR)./.gem.20210916-44343-11zt4q4
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)
@@ -84,7 +84,7 @@ debugflags = -ggdb3
 warnflags = 
 cppflags = 
 CCDLFLAGS = -fno-common
-CFLAGS   = $(CCDLFLAGS) -Wno-error=implicit-function-declaration  -fno-common -pipe  $(ARCH_FLAG)
+CFLAGS   = $(CCDLFLAGS) $(cflags)  -fno-common -pipe  $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir) -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/ffi
 DEFS     = 
 CPPFLAGS = -DRUBY_EXTCONF_H=\"$(RUBY_EXTCONF_H)\" -I/Users/seibikatakashi/.rbenv/versions/2.6.7/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)
