@@ -1,3 +1,4 @@
+
 <h2><%= t('.change_your_password') %></h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
@@ -8,6 +9,35 @@
     <%= f.label :password, t('.new_password') %><br />
     <% if @minimum_password_length %>
       <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em><br />
+
+<div class="text-center p-200">
+	<div class="logo">edit password</div>
+	<!-- Main Form -->
+	<div class="login-form-1">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+			<div class="main-login-form">
+				<div class="login-group">
+          <%= f.label :password, t('.new_password') %><br />
+          <% if @minimum_password_length %>
+            <em class="d-inline-block"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em><br />
+          <% end %>
+					<div class="form-group mt-4">
+            <div class="field">
+              <%= f.password_field :password, autofocus: true, autocomplete: "new-password",class:"p-0 form-control",placeholder:"new-password" %>
+            </div>
+					</div>
+					<div class="mt-4 form-group">
+            <div class="field">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"p-0 form-control",placeholder:"confirm-new-password" %>
+            </div>
+					</div>
+		  		<p class="mt-5"><%= button_tag '<i class="p-set fa fa-chevron-right indicate"></i>'.html_safe,:type => "submit" ,class:"actionsbtn login-button2" %></p>
+				</div>
+			  </div>
+		  	<div class="mt-0 etc-login-form">
+          <%= render "devise/shared/links" %>
+			</div>
+
     <% end %>
     <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
   </div>

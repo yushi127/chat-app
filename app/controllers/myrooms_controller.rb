@@ -14,8 +14,11 @@ class MyroomsController < ApplicationController
   def destroy
     @user = current_user
     @relationdes = Relation.find_by(userid: @user, roomid: params[:id])
-    @relationdes.destroy
-    redirect_to myrooms_path, notice: 'Success!'
+    # @roomid = @relationdes.
+    if @relationdes.destroy
+      flash[:notice] = "離脱しました"
+      redirect_to myrooms_path
+    end
   end
 
 end

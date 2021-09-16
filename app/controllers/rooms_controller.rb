@@ -15,7 +15,6 @@ class RoomsController < ApplicationController
     @search_params = room_search_params  #検索結果の画面で、フォームに検索した値を表示するために、paramsの値をビューで使えるようにする
     @searchrooms = Room.search(@search_params)  #Reservationモデルのsearchを呼び出し、引数としてparamsを渡している。
     render "index"
-
   end
 
   def new
@@ -23,9 +22,11 @@ class RoomsController < ApplicationController
   end
   
   def create
+    @rooms = Room.all  
     @room = Room.new(room_params)
+    
     if @room.save
-      redirect_to root_path, notice: 'Success!'
+      redirect_to root_path, notice: 'ルームを作成しました'
     else
       flash[:alert] = 'Save error!'
       render :new
@@ -40,11 +41,8 @@ class RoomsController < ApplicationController
     @room.destroy
 
     redirect_to root_path, notice: 'Success!'
-  end
-
-  def show
-    @room = Room.find(params[:id])
-    @user = current_user
+       
+    
     @relation = Relation.new
     @relation.userid = @user.id 
     @relation.roomid = @room.id
@@ -54,8 +52,18 @@ class RoomsController < ApplicationController
     else
       flash[:alert] = "#{@room.title}には既に参加しています!"
     end
+  end
 
+  def show
+    @room = Room.find(params[:id])
+    @user = current_user
+    # ///////////////////////////////////// 
+    # @messages = Message.where()
+    
+    # ///////////////////////////////////// 
+    
 
+    @message = Message.new
   end
 
   def setting
