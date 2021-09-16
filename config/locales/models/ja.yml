@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+    models:
+      user: ユーザー
+      username: ユーザーネーム
+      title: タイトル
+      semester: 学期
+      Department: 学部

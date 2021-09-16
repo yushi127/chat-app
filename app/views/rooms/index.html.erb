@@ -1,7 +1,7 @@
+<p class="blue text-white text-center m-0 notice"><%= notice %></p>
 <div class="bottmpad">
-  <p class="notice"><%= notice %></p>
   <%# <p class="alert"><%= alert %>
-  <header class="color-skyblue d-flex justify-content-around align-items-center">
+  <header class="py-4 color-skyblue d-flex justify-content-around align-items-center">
     <h1 class="pl-5 px-2 py-3 m-0 text-black text-center">All room</h1>
     <div class="d-flex justify-content-around align-items-center">
       <div class="search-form ml-5 ">
@@ -47,9 +47,10 @@
   <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
     <% unless @search_params.blank? %>
       <% @searchrooms.reverse_each do |searchroom| %>
-        <div class="shadow with45set mx-2 mb-4 rounded parent">
-          <div class="p-5 color-skyblue">
-            <h2 class="m-2 py-4"><%= link_to searchroom.title , room(searchroom),data:{ confirm: "#{searchroom.title}に参加しますか？"}, class: "text-dark" %></h2>
+
+        <div class="room shadow with45set mx-2 mb-4 rounded parent bg-white">
+          <div class="roomcolor p-5">
+            <h2 class="m-2 py-4"><%= link_to searchroom.title , chatroom_path(searchroom),data:{ confirm: "#{searchroom.title}に参加しますか？"}, class: "text-dark" %></h2>
             <div class="child mr-4">
               <% count = 0 %>
               <% @rerations.each do |reration| %>
@@ -72,9 +73,11 @@
 
     <% if  @search_params.blank? %>
       <% @rooms.reverse_each do |room| %>
-        <div class="shadow with45set mx-2 mb-4 rounded parent">
-          <div class="p-5 color-skyblue">
-            <h2 class="m-2 py-4"><%= link_to room.title , room_path(room),data:{ confirm: "#{room.title}に参加しますか？"}, class: "text-dark" %></h2>
+
+        
+        <div class="room shadow with45set mx-2 mb-4 rounded parent bg-white">
+          <div class="roomcolor p-5 ">
+            <h2 class="m-2 py-4"><%= link_to room.title , chatroom_path(room),data:{ confirm: "#{room.title}に参加しますか？"}, class: "text-dark" %></h2>
             <div class="child mr-4">
               <% count = 0 %>
               <% @rerations.each do |reration| %>

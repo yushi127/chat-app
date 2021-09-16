@@ -74,6 +74,8 @@ gem 'devise-i18n'
 
 gem 'carrierwave'
 
+gem 'rails-i18n'
+
 group :production do
   gem 'pg'
 end
