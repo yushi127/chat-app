@@ -50,7 +50,7 @@
 
         <div class="room shadow with45set mx-2 mb-4 rounded parent bg-white">
           <div class="roomcolor p-5">
-            <h2 class="m-2 py-4"><%= link_to searchroom.title , chatroom_path(searchroom),data:{ confirm: "#{searchroom.title}に参加しますか？"}, class: "text-dark" %></h2>
+            <h2 class="m-2 py-4"><%= link_to searchroom.title , room_path(searchroom),data:{ confirm: "#{searchroom.title}に参加しますか？"}, class: "text-dark" %></h2>
             <div class="child mr-4">
               <% count = 0 %>
               <% @rerations.each do |reration| %>
@@ -77,7 +77,7 @@
         
         <div class="room shadow with45set mx-2 mb-4 rounded parent bg-white">
           <div class="roomcolor p-5 ">
-            <h2 class="m-2 py-4"><%= link_to room.title , chatroom_path(room),data:{ confirm: "#{room.title}に参加しますか？"}, class: "text-dark" %></h2>
+            <h2 class="m-2 py-4"><%= link_to room.title , room_path(room),data:{ confirm: "#{room.title}に参加しますか？"}, class: "text-dark" %></h2>
             <div class="child mr-4">
               <% count = 0 %>
               <% @rerations.each do |reration| %>

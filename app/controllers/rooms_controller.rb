@@ -24,7 +24,7 @@ class RoomsController < ApplicationController
   def create
     @rooms = Room.all  
     @room = Room.new(room_params)
-    
+    @message = messages.new
     if @room.save
       redirect_to root_path, notice: 'ルームを作成しました'
     else
