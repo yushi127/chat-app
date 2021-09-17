@@ -51,4 +51,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:id, :username,:expulsion,:reason)
   end
 
+
 end
