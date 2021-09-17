@@ -1,4 +1,3 @@
-
 <p class="blue text-white text-center m-0 notice"><%= notice %></p>
 <div class="bottmpad">      
   <header class="bg-white">
@@ -39,12 +38,12 @@
           <h2 class="mt-1 ml-4 "><%= @user.username %></h2>
         </div>
       </div>
-
     </div>
-  </div>
-  <div class="d-flex justify-content-around flex-wrap text-center w-100 p-3">
-  <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
+  </header>
 
+
+  <div class="roomwrap mt-5 pt-5 d-flex justify-content-around flex-wrap text-center w-100 px-3 pb-3">
+  <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
     <% unless @search_params.blank? %>
       <% @relationrooms.reverse_each do |searchroom| %>
         <div class="room shadow with45set mx-2 mb-4 rounded parent bg-white">
@@ -68,11 +67,8 @@
             <span class="m-2"><%= link_to 'Delete' , myroom_path(searchroom), method: :delete, data:{ confirm: "本当に#{searchroom.title}から抜けますか？"},class: "child mr-5 mb-5 text-dark"%></span>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  </div>
-
-
     <% if  @search_params.blank? %>
       <% @relationrooms.reverse_each do |room| %>
         <div class="room shadow with45set mx-2 mb-4 rounded parent bg-white">
@@ -99,6 +95,4 @@
       <% end %>
     <% end %>
   </div>
-<div>
-
-
+</div>

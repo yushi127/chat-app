@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
   def index
     @rooms = Room.all  
     @rerations =  Relation.all  
+    @sampleuser = User.where(id: 12).first
   end
   
   def search
@@ -24,7 +25,6 @@ class RoomsController < ApplicationController
   def create
     @rooms = Room.all  
     @room = Room.new(room_params)
-    @message = messages.new
     if @room.save
       redirect_to root_path, notice: 'ルームを作成しました'
     else
@@ -57,12 +57,7 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @user = current_user
-    # ///////////////////////////////////// 
-    # @messages = Message.where()
-    
-    # ///////////////////////////////////// 
-    
-
+    @messages=Message.where(room_id: @room.id)
     @message = Message.new
   end
 
@@ -83,4 +78,3 @@ class RoomsController < ApplicationController
       #ここでの:searchには、フォームから送られてくるparamsの値が入っている
     end
 end
-
