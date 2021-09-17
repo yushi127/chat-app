@@ -12,12 +12,11 @@
       <br><h3 class=""><%= "username:  #{@user.email}" %></h3>
     </div>
     <% if user_signed_in? && @user.id == current_user.id %>
-      <br><%= link_to "プロフィール情報を変更する",  edit_user_registration_path(current_user), class: "btn btn-outline-danger" %>
+      <br><%= link_to "プロフィール情報を変更する",  edit_user_registration_path(current_user), class: "btn btn-primary" %>
     <% end %>
-
     <% if user_signed_in? && @user.id == current_user.id %>
-        <%= link_to "退会", user_registration_path(current_user), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+        <p class="mt-4"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
+        <%= link_to "退会", user_registration_path(current_user), method: :delete, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %></p>
     <% end %>
   </div>
 </div>
-  
