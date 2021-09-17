@@ -42,7 +42,14 @@ class RoomsController < ApplicationController
 
     redirect_to root_path, notice: 'Success!'
        
-    
+
+  end
+
+  def show
+    @room = Room.find(params[:id])
+    @user = current_user
+    @messages=Message.where(room_id: @room.id)
+    @message = Message.new
     @relation = Relation.new
     @relation.userid = @user.id 
     @relation.roomid = @room.id
@@ -52,13 +59,6 @@ class RoomsController < ApplicationController
     else
       flash[:alert] = "#{@room.title}には既に参加しています!"
     end
-  end
-
-  def show
-    @room = Room.find(params[:id])
-    @user = current_user
-    @messages=Message.where(room_id: @room.id)
-    @message = Message.new
   end
 
   def setting

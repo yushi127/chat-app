@@ -1,5 +1,5 @@
 <p class="blue text-white text-center m-0 notice"><%= notice %></p>
-<div class="bottmpad">      
+<div class="bottmpad">
   <header class="bg-white">
     <div class="py-4 color-skyblue d-flex justify-content-around align-items-center">
       <h1 class="pl-5 px-2 py-3 m-0 text-black text-center">My room</h1>
@@ -10,29 +10,23 @@
               <%= f.text_field :keyword, value: @keyword, class: "formboxcss" %>
               <%= f.submit "search", class: "formbtmcss px-1" %>
             <% end %> -->
-  
         <%= form_with(scope: :search, url: myroomsearch_path, method: :get, local: true, class: "py-3") do |f| %>
           <label>作成者名</label>
           <%= f.text_field :name, placeholder: '半角のみ' %>
           <label>授業名</label>
           <%= f.text_field :title, placeholder: '半角のみ' %>
-  
           <div class="form-group">
             <label>学期</label>
             <%= f.select :semester, ['春', '秋'], { include_blank: '選択してください'}, class: "form-control" %>
           </div>
-  
           <div class="form-group">
             <label>学部</label>
               <%= f.select :department,['神学部', '社会学部', '経済学部', '文学部', '法学部', '商学部', '人間福祉学部', '国際学部', '教育学部', '総合政策学部', '理学部', '工学部', '建築学部', '生命環境学部', '大学院'], { include_blank: '選択してください'},class: "form-control" %>
           </div>
-  
           <%= f.submit "search", class: "formbtmcss px-1" %>
         <% end %>
-  
           </div>
         </div>
-  
         <div class="text-center">
           <h6 class="m-0 ml-4 "><%= link_to image_tag(@user.user_icon.to_s) , setting_path, class: "mini_img text-dark " %></h6>
           <h2 class="mt-1 ml-4 "><%= @user.username %></h2>
@@ -40,8 +34,6 @@
       </div>
     </div>
   </header>
-
-
   <div class="roomwrap mt-5 pt-5 d-flex justify-content-around flex-wrap text-center w-100 px-3 pb-3">
   <!--この下のDIVを＜％％＞で囲ってforin的なもので回してその数出てくるようにする（何個作っても二列以上にならんように設定）-->
     <% unless @search_params.blank? %>
@@ -53,7 +45,7 @@
               <% count = 0 %>
               <% @rerations.each do |reration| %>
                 <% if searchroom.id === reration.roomid %>
-                  <% count += 1 %>     
+                  <% count += 1 %>
                 <% end %>
               <% end %>
               <p>参加人数: <%= count %></p>
@@ -78,7 +70,7 @@
               <% count = 0 %>
               <% @rerations.each do |reration| %>
                 <% if room.id === reration.roomid %>
-                  <% count += 1 %>     
+                  <% count += 1 %>
                 <% end %>
               <% end %>
               <p>参加人数: <%= count %></p>
