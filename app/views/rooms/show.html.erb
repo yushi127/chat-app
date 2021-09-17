@@ -1,3 +1,7 @@
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+</script>
 
 
 <div class="chat_window">
@@ -12,42 +16,23 @@
 </div>
 <div class="title">Kwansei-Chat</div>
 </div>
-<%
-=begin%>
- <ul class="messages" id="message"> 
-<%
-=end%>
- <%
-=begin%>
- <%= render @messages %>  
-<%
-=end%>
+<ul class="messages" id="message">
+
+
+
 </ul>
 <div class="bottom_wrapper clearfix">
 <div class="message_input_wrapper">
-
-
-
-
-
 <%= form_with(model:[@room, @message], local: true) do |f| %>
-  <div class="field">
-    <label>コメント</label>
-    <p class="messages" id="message"><%= f.text_field :content, class: "form-control" %></p>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :user_id, :value => @user.id %> 
-  </div>
-  <div id="chatInput" class="message_input field">
-    <%= f.submit "save", class: "btn btn-primary" %>
-  </div>
-<% end %>
 
+<%= f.text_field :content,  class: "message_input" %>
+
+ <%= f.hidden_field :user_id, :value => @user.id %> 
 </div>
-<div class="send_message" id="button">
+<%= f.submit "送信" ,class: "send_message" %>
 <div class="icon">
 </div>
-<div class="text">送信</div>
+<% end %>
 </div>
 </div>
 </div>
@@ -61,5 +46,3 @@
 </div>
 </li>
 </div> 
-
-
