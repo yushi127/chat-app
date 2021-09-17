@@ -59,6 +59,7 @@ class RoomsController < ApplicationController
     @user = current_user
 
     @message = Message.new
+    @messages=Message.where(room_id: @room.id)
   end
 
   def setting
