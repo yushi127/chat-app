@@ -72,7 +72,11 @@
     <% end %>
 
     <% if  @search_params.blank? %>
-      <%= link_to @sampleuser.username, userexplusion_path(@sampleuser.id) %>
+      <%
+=begin%>
+ <%= link_to @sampleuser.username, userexplusion_path(@sampleuser.id) %> 
+<%
+=end%>
 
       <% @rooms.reverse_each do |room| %>
         

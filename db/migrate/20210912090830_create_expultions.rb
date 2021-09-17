@@ -9,5 +9,5 @@ class CreateExpultions < ActiveRecord::Migration[5.2]
     end
   end
 end
-  belongs_to :allplan, foreign_key: 'allplan_id'
-  has_many :result_todos
+  # belongs_to :allplan, foreign_key: 'allplan_id'
+  # has_many :result_todos
