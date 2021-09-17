@@ -60,6 +60,7 @@ class RoomsController < ApplicationController
 
     @message = Message.new
     @messages=Message.where(room_id: @room.id)
+   
   end
 
   def setting

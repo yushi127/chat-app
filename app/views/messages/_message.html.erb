@@ -2,7 +2,7 @@
 <div class="talk">
  <% if current_user.id == message.user_id%> 
 <div class="talk_right">
-<li><%= current_user.username %></li>
+<li><%= message.user_name %></li>
 		<p><%= message.content %></p>
 		<a href="/">
 		</a>

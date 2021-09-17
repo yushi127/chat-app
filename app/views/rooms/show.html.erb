@@ -17,17 +17,17 @@
 <div class="title">Kwansei-Chat</div>
 </div>
 <ul class="messages" id="message">
-
 <%= render @messages %> 
-
 </ul>
 <div class="bottom_wrapper clearfix">
 <div class="message_input_wrapper">
 <%= form_with(model:[@room, @message], local: true) do |f| %>
 
-<%= f.text_field :content,  class: "message_input" %>
+<%= f.text_field :content, placeholder: "ここに入力してね...", class: "message_input" %>
 
  <%= f.hidden_field :user_id, :value => @user.id %> 
+ <%= f.hidden_field :user_name, :value => @user.username %> 
+<%=  f.hidden_field :user_icon, :value => @user.user_icon.to_s %>
 </div>
 <%= f.submit "送信" ,class: "send_message" %>
 <div class="icon">
