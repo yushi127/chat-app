@@ -3,7 +3,6 @@ class MessagesController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
     @user = current_user
-  
     message = @room.messages.new(message_params)
 
     if message.save

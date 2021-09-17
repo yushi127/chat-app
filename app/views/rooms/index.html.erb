@@ -1,7 +1,7 @@
 <p class="blue text-white text-center m-0 notice"><%= notice %></p>
 <div class="bottmpad">
   <%# <p class="alert"><%= alert %>
-  <header class="py-4 color-skyblue d-flex justify-content-around align-items-center">
+  <header class="color-skyblue d-flex justify-content-around align-items-center">
     <h1 class="pl-5 px-2 py-3 m-0 text-black text-center">All room</h1>
     <div class="d-flex justify-content-around align-items-center">
       <div class="search-form ml-5 ">
@@ -70,13 +70,15 @@
         </div>
       <% end %>
     <% end %>
+
+    <% c = "red" %>
     <% if  @search_params.blank? %>
-      <%
-=begin%>
- <%= link_to @sampleuser.username, userexplusion_path(@sampleuser.id) %> 
-<%
-=end%>
+      <%= link_to @sampleuser.username, userexplusion_path(@sampleuser.id) %>
+
       <% @rooms.reverse_each do |room| %>
+      <% if  %>
+        
+      <% end %>
         
         <div class="room shadow with45set mx-2 mb-4 rounded parent bg-white">
           <div class="roomcolor p-5 ">

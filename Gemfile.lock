@@ -99,7 +99,6 @@ GEM
       devise (>= 4.8.0)
     erubi (1.10.0)
     execjs (2.8.1)
-    ffi (1.15.4)
     ffi (1.15.4-x64-mingw32)
     globalid (0.5.2)
       activesupport (>= 5.0)

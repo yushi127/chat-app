@@ -1,5 +1,5 @@
 <div>
-  <div class="text-center p-100">
+  <div class="text-center p-200">
 
     <div>
       <%= image_tag @user.user_icon.to_s, class:"icon_image" %>
@@ -9,7 +9,7 @@
 
     <div>
       <br><h3 class=""><%= "username:  #{@user.username}" %></h3>
-      <br><h3 class=""><%= "username:  #{@user.email}" %></h3>
+      <br><h3 class=""><%= "email:  #{@user.email}" %></h3>
     </div>
     <% if user_signed_in? && @user.id == current_user.id %>
       <br><%= link_to "プロフィール情報を変更する",  edit_user_registration_path(current_user), class: "btn btn-primary" %>

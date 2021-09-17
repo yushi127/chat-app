@@ -1,47 +1,43 @@
 class MyroomsController < ApplicationController
+  before_action :set_user
 
   def index
     @rerations =  Relation.all  
     @user = current_user
-    @myRelations = Relation.where(userid: @user.id)
-   # //下でループさせるから@roomsをあらかじめ定義する
-   @rooms = Room.all
-   # //@roomsのなかにcurrent_userが入ってるルームを追加する
-   
-   @relationrooms = []
-   @relationusers = Relation.where(userid: @user.id)
-   @aa = @relationusers
-   i = 0
-   count = @relationusers.length
-   while i <  count 
-     @relationroom = Room.where(id: @relationusers[i].roomid).first
-     @relationrooms.push(@relationroom)
-     i+=1
+    # //下でループさせるから@roomsをあらかじめ定義する
+    @rooms = Room.all
+    # //@roomsのなかにcurrent_userが入ってるルームを追加する
+    
+    @relationrooms = []
+    @relationusers = Relation.where(userid: @user.id)
+    @aa = @relationusers
+    i = 0
+    count = @relationusers.length
+    while i <  count 
+      @relationroom = Room.where(id: @relationusers[i].roomid).first
+      @relationrooms.push(@relationroom)
+      i+=1
     end
   end
-  def destroy
-    @user = current_user
-    @relationdes = Relation.find_by(userid: @user, roomid: params[:id])
-    # @roomid = @relationdes.
-    if @relationdes.destroy
-      flash[:notice] = "離脱しました"
-      redirect_to myrooms_path
-    end
-  end
-def search
+  def search
     @rerations =  Relation.all  
+
     @rooms = Room.all  
+    @rerations =  Relation.all  
     @search_params = room_search_params  #検索結果の画面で、フォームに検索した値を表示するために、paramsの値をビューで使えるようにする
+
     # すべてのROOMから検索した結果を入れる
     @searchrooms = Room.search(@search_params)  #Reservationモデルのsearchを呼び出し、引数としてparamsを渡している。
     
     # rerationから現在ログイン中のユーザーのレコード取得
     relationusers = Relation.where(userid: @user.id)
+
     # 変数定義
     i = 0
     @relationrooms = []
     counti = relationusers.length
     countj = @searchrooms.length
+
     # ルームのIDがrerationから現在ログイン中のユーザーのレコードとすべてのROOMから検索した結果が同じとこ取得
     # 取得したものを@relationroomsのPUSH
     while i <  counti 
@@ -57,5 +53,25 @@ def search
       i+=1
     end
     render "index"
+  end
+
+  def destroy
+    @user = current_user
+    @relationdes = Relation.find_by(userid: @user, roomid: params[:id])
+    # @roomid = @relationdes.
+    if @relationdes.destroy
+      flash[:notice] = "離脱しました"
+      redirect_to myrooms_path
+    end
+  end
+
+  private  
+  def set_user
+    @user = current_user
+  end
+  def room_search_params
+    params.fetch(:search, {}).permit(:name, :title, :semester, :department)
+    #fetch(:search, {})と記述することで、検索フォームに値がない場合はnilを返し、エラーが起こらなくなる
+    #ここでの:searchには、フォームから送られてくるparamsの値が入っている
   end
 end
