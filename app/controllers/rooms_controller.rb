@@ -17,6 +17,7 @@ class RoomsController < ApplicationController
     render "index"
   end
 
+  
   def new
     @room = Room.new
   end
