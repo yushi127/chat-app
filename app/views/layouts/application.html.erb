@@ -4,40 +4,33 @@
     <title>ChatApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-     
-    
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 
-    <%# login %>
-    <%# <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>/ %>
-    <!------ Include the above in your HEAD tag ---------->
-    
-    <!-- All the files that are required -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   </head>
 
   <body>
-    <div class="bottmpad m-0">
-      <%= yield %>
-      <% if user_signed_in? %>
-        
-      <footer>
-        <div class="blue text-center fixed-bottom p-2">
-          <ul class="d-flex justify-content-around m-0 p-1" style="list-style:none;">
-            <li><%= link_to 'All Room' , root_path, class: "text-dark" %></li>
-            <li><%= link_to 'myroom' , myrooms_path, class: "text-dark" %></li>
-            <li><%= link_to 'setting' , setting_path, class: "text-dark" %></li>
-          </ul>
-        </div>
-      </footer>
-      <% end %>
+
+    <div class="allbackground m-0">
+      <div class="bg-mask bottmpad">
+        <%= yield %>
+        <% if user_signed_in? %>
+          
+        <footer>
+          <div class="blue text-center fixed-bottom p-2">
+            <ul class="d-flex justify-content-around m-0 p-1" style="list-style:none;">
+              <li><%= link_to 'All Room' , root_path, class: "text-dark" %></li>
+              <li><%= link_to 'myroom' , myrooms_path, class: "text-dark" %></li>
+              <li><%= link_to 'setting' , setting_path, class: "text-dark" %></li>
+            </ul>
+          </div>
+        </footer>
+        <% end %>
+      </div>
     </div>
   </body>
 </html>

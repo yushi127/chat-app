@@ -1,7 +1,65 @@
-<div class="with45set m-2 bg-secondary rounded">
-  <div class=p-5>
-    <h2><%= @room.title %></h2>
-    <p>作成者：<%= @room.name %></p>
-    <p>作成日：<%= @room.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-  </div>
+
+
+<div class="chat_window">
+<div class="top_menu">
+<div class="buttons">
+<div class="button close">
 </div>
+<div class="button minimize">
+</div>
+<div class="button maximize">
+</div>
+</div>
+<div class="title">Kwansei-Chat</div>
+</div>
+<%
+=begin%>
+ <ul class="messages" id="message"> 
+<%
+=end%>
+ <%
+=begin%>
+ <%= render @messages %>  
+<%
+=end%>
+</ul>
+<div class="bottom_wrapper clearfix">
+<div class="message_input_wrapper">
+
+
+
+
+
+<%= form_with(model:[@room, @message], local: true) do |f| %>
+  <div class="field">
+    <label>コメント</label>
+    <p class="messages" id="message"><%= f.text_field :content, class: "form-control" %></p>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => @user.id %> 
+  </div>
+  <div id="chatInput" class="message_input field">
+    <%= f.submit "save", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+</div>
+<div class="send_message" id="button">
+<div class="icon">
+</div>
+<div class="text">送信</div>
+</div>
+</div>
+</div>
+<div class="message_template">
+<li class="message">
+<div class="avatar">
+</div>
+<div class="text_wrapper">
+<div class="text" >
+</div>
+</div>
+</li>
+</div> 
+
+

@@ -1,10 +1,9 @@
-<div class="text-center" style="padding:50px 0">
+
+<div class="text-center p-200">
 	<div class="logo">login</div>
 	<!-- Main Form -->
 	<div class="login-form-1">
 	  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-		<form id="login-form" class="text-left">
-			<div class="login-form-main-message"></div>
 			<div class="main-login-form">
 				<div class="login-group">
 					<div class="form-group">
@@ -31,9 +30,8 @@
         </div>
 			</div>
 			<div class="etc-login-form">
-<%= render "devise/shared/links" %>
+        <%= render "devise/shared/links" %>
 			</div>
-		</form>
 		<% end %>
 	</div>
 	<!-- end:Main Form -->

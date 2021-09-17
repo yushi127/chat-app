@@ -1,12 +1,9 @@
-
-<div class="text-center" style="padding:50px 0">
+<div class="text-center p-100" >
 	<div class="logo">Sign in</div>
 	<!-- Main Form -->
 	<div class="login-form-1">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-		<form id="login-form" class="text-left">
-			<div class="login-form-main-message"></div>
+      <%= render "devise/shared/error_messages", resource: resource %>
 			<div class="main-login-form">
 				<div class="login-group">
 					<div class="form-group">
@@ -47,11 +44,37 @@
         </div>
 			</div>
 			<div class="etc-login-form">
-    <%= render "devise/shared/links" %>
+        <%= render "devise/shared/links" %>
 			</div>
-		</form>
 		<% end %>
 	</div>
 	<!-- end:Main Form -->
 </div>
 
+  <div class="field">
+    <h5><%= f.label :password, class: "mb-0" %></h5>
+    <% if @minimum_password_length %>
+    <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "mb-4" %>
+  </div>
+
+  <div class="field">
+    <h5><%= f.label :password確認 %> </h5>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "mb-4" %>
+  </div>
+
+  <div class="field">
+    <h5><%= f.label :アイコン %> </h5>
+    <%= f.file_field :user_icon, id: 'upload-icon input-file' %>
+    <p>(登録しない場合デフォルトアイコンになります。※後で変更可能)</p>
+  </div>
+  <div id="preview"></div>
+
+  <div class="actions">
+    <%= f.submit t('.sign_up') %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
