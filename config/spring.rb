@@ -1,4 +1,4 @@
-%w[
+Z%w[
   .ruby-version
   .rbenv-vars
   tmp/restart.txt

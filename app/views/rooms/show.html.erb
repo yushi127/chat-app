@@ -5,42 +5,42 @@
 
 
 <div class="chat_window">
-<div class="top_menu">
-<div class="buttons">
-<div class="button close">
-</div>
-<div class="button minimize">
-</div>
-<div class="button maximize">
-</div>
-</div>
-<div class="title">Kwansei-Chat</div>
-</div>
-<ul class="messages" id="message">
-<%= render @messages %> 
-</ul>
-<div class="bottom_wrapper clearfix">
-<div class="message_input_wrapper">
-<%= form_with(model:[@room, @message], local: true) do |f| %>
-<%= f.text_field :content, placeholder: "ここに入力してね...", class: "message_input" %>
- <%= f.hidden_field :user_id, :value => @user.id %> 
- <%= f.hidden_field :user_name, :value => @user.username %> 
-<%=  f.hidden_field :user_icon, :value => @user.user_icon.to_s %>
-</div>
-<%= f.submit "送信" ,class: "send_message" %>
-<div class="icon">
-</div>
-<% end %>
-</div>
-</div>
-</div>
-<div class="message_template">
-<li class="message">
-<div class="avatar">
-</div>
-<div class="text_wrapper">
-<div class="text" >
-</div>
-</div>
-</li>
+  <div class="top_menu">
+    <div class="buttons">
+      <div class="button close">
+      </div>
+      <div class="button minimize">
+      </div>
+      <div class="button maximize">
+      </div>
+    </div>
+    <div class="title">Kwansei-Chat</div>
+    </div>
+    <ul class="messages" id="message">
+    <%= render @messages %> 
+    </ul>
+    <div class="bottom_wrapper clearfix">
+      <div class="message_input_wrapper">
+        <%= form_with(model:[@room, @message], local: true) do |f| %>
+          <%= f.text_field :content, placeholder: "ここに入力してね...", class: "message_input" %>
+          <%= f.hidden_field :user_id, :value => @user.id %> 
+          <%= f.hidden_field :user_name, :value => @user.username %> 
+          <%=  f.hidden_field :user_icon, :value => @user.user_icon.to_s %>
+      </div>
+          <%= f.submit "送信" ,class: "send_message" %>
+          <div class="icon">
+      </div>
+    <% end %>
+    </div>
+  </div>
+  </div>
+  <div class="message_template">
+  <li class="message">
+    <div class="avatar">
+    </div>
+    <div class="text_wrapper">
+    <div class="text" >
+    </div>
+    </div>
+  </li>
 </div> 

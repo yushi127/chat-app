@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete 'users/:id' => 'users#destroy', as: :del_userexplusion
   # post 'message/:id' => 'message#create' , as: :
 
+
   resources :myrooms
   resources :rooms do
     resources :messages
